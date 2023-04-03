@@ -35,4 +35,4 @@ This android application based on java, aims to help learning english verbs and 
 
 <br/>
 
-
+As mentionned above, this application will allow the user to choose verbs and then be tested on them. For that, the application will be composed of two views, the main view (start screen), and then the availible tests view. Follow reading below for more details. 
