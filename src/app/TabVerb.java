@@ -11,7 +11,7 @@ public class TabVerb {
         arr = new ArrayList<Verbs>();
     }
 
-    public TabVerb(String filename){
+    public TabVerb(String filename){ // "/home/antoine/Prog/android/teachme.io/src/app/src/verbs.txt"
         arr = new ArrayList<Verbs>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line1, line2, line3, line4;
@@ -31,4 +31,11 @@ public class TabVerb {
         while(!arr.get(res = r.nextInt(arr.size())).selected){}
         return arr.get(res);
     }
+    public String toString(){
+        String res = "";
+        for(int  i = 0 ; i < arr.size() ; ++i)
+            res += arr.get(i) + "\n";
+        return res;
+    }
 }
+

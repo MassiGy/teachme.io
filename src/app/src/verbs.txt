@@ -38,7 +38,8 @@ bend
 bent	
 bent	
 plier / se courber
-beseech	besought / beseeched	
+beseech
+besought / beseeched	
 besought / beseeched	
 supplier / demander
 bet	
@@ -54,7 +55,8 @@ bound
 bound	
 engager, lier
 bite	
-bit	bitten	
+bit
+bitten	
 mordre
 bleed	
 bled	
@@ -610,7 +612,8 @@ spun
 tourner / faire tourner
 spit	
 spat / spit	
-spat / spit	crâcher
+spat / spit	
+crâcher
 split	
 split	
 split	
@@ -829,7 +832,8 @@ wrung
 tordre
 write	
 wrote	
-written	écrire
+written
+écrire
 miscast
 miscast	
 miscast	
@@ -897,8 +901,7 @@ surpasser / exceller
 outdraw	
 outdrew	
 outdrawn	
-devancer 
-son adversaire
+devancer son adversaire
 outdrink	
 outdrank	
 outdrunk	

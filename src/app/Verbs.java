@@ -20,4 +20,8 @@ public class Verbs {
         past_p = p_p;
         selected = true;
     }
+
+    public String toString(){
+        return french +" \t"+ english +" \t"+ preterit +" \t"+ past_p;
+    }
 }
