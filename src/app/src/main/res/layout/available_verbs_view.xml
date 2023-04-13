@@ -6,4 +6,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/teachme_io_bg"
     android:orientation="vertical"
-    tools:context=".available_verbs_view"/>
+    tools:context=".available_verbs_view">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/select_verbs"
+        android:layout_width="226dp"
+        android:layout_height="492dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

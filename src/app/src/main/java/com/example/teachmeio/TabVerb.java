@@ -1,8 +1,12 @@
+package com.example.teachmeio;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class TabVerb {
     private ArrayList<Verbs> arr;
@@ -36,6 +40,12 @@ public class TabVerb {
         for(int  i = 0 ; i < arr.size() ; ++i)
             res += arr.get(i) + "\n";
         return res;
+    }
+
+    public List<String> getList(){
+        return arr.stream()
+                            .map(s -> s.toString())
+                            .collect(Collectors.toList());
     }
 }
 
