@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Teachmeio"
         tools:targetApi="31">
         <activity
+            android:name=".random_test_view"
+            android:exported="false" />
+        <activity
+            android:name=".classic_test_view"
+            android:exported="false" />
+        <activity
             android:name=".available_tests_view"
             android:exported="false" />
         <activity
