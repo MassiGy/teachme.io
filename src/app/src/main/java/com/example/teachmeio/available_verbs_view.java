@@ -5,6 +5,7 @@ import static java.lang.System.exit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Switch;
 
@@ -26,42 +27,40 @@ public class available_verbs_view extends AppCompatActivity {
         setContentView(R.layout.available_verbs_view);
 
         TabVerb tv = new TabVerb();
-        System.out.println("####### before calling the context this\n");
+        System.out.println("\n\n\n\n####### before calling the context this : assets : " + getResources().getAssets() + "\n\n\n\n");
 
-        File file_verbs = new File(this.getFilesDir(), "verbs.txt");
-        System.out.println("####### after calling the context this\n######### " + file_verbs);
 
-        FileInputStream fis = null;
+        // voici comment lire un fichier texte sous android. Le fichier doit être placé dans le répertoire Assets : android.content.res.AssetManager@fbe4f01
+        BufferedReader reader = null;
+        int nb_verb = 0;
         try {
-            String file_to_read = "verbs.txt";
-            System.out.println("about to open " + file_to_read);
-            fis = new FileInputStream(file_to_read);
-        }catch (java.io.FileNotFoundException e){
-            System.out.println("impossible to open the file. here are the files inside the current directory : ");
-            String[] files_of_current_directory = this.fileList();
-            for(int i = 0 ; i < files_of_current_directory.length ; i++){
-                System.out.println(files_of_current_directory[i]);
-            }
-
-
-            System.out.println("\n\n\n################################## FILE NOT FOUND " + fis);
-            e.printStackTrace();
-        }
-        InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-        StringBuilder stringBuilder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+            reader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("verbs.txt")));
             String line1, line2, line3, line4;
             while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
                 tv.arr.add(new Verbs(line4, line1, line2, line3));
+                nb_verb++;
             }
         } catch (IOException e) {
-            // Error occurred when opening raw file for reading.
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        System.out.println("#########################################" + tv);
-        for(int i = 0 ; i  < TabVerb.nb_verbs ; ++i){
-            Switch s = (Switch)findViewById(R.id.switch0);
-            s.setText("blabla");//tv.arr.get(i).toString());
-            s.setChecked(tv.arr.get(i).selected);
+
+        Switch switchView;
+        for(int i = 0 ; i < nb_verb ; ++i){
+            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
+            switchView.setText(tv.arr.get(i).toString());
         }
+
+
     }
+
+
+
 }
