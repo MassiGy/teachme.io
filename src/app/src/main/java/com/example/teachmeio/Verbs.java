@@ -27,6 +27,15 @@ public class Verbs {
         nb_fails = 0;
     }
 
+    public Verbs(String f, String e, String pre, String p_p, int fails, boolean select){
+        french = f;
+        english = e;
+        preterit = pre;
+        past_p = p_p;
+        selected = select;
+        nb_fails = fails;
+    }
+
     public String toString(){
         return french +" \t"+ english +" \t"+ preterit +" \t"+ past_p;
     }

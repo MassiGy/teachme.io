@@ -56,7 +56,13 @@ public class available_verbs_view extends AppCompatActivity {
                 }
             }
         }
-
+        /*
+        // ============= insert verbs into db
+        DBHelper dbh = new DBHelper(this);
+        for(int i = 0 ; i < nb_verb ; ++i){
+            dbh.insertVerb(tv.arr.get(i));
+        }
+        */
         // ============= Once the file is read, we need to change each switch color
 
         Switch switchView;
