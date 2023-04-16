@@ -41,8 +41,25 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             onCreate(db);
         }
+        public void deleteDatabase(Context context) {
+            context.deleteDatabase(DATABASE_NAME);
+        }
 
-        // Insertion of a verb into the database
+    public int getVerbsCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String countQuery = "SELECT COUNT(*) FROM " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = 0;
+        if (cursor != null && cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+            cursor.close();
+        }
+        return count;
+    }
+
+
+
+    // Insertion of a verb into the database
         public void insertVerb(Verbs v) {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
