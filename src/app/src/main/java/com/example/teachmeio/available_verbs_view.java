@@ -34,7 +34,7 @@ public class available_verbs_view extends AppCompatActivity {
 
         TabVerb tv = new TabVerb();
         //System.out.println("\n\n\n\n####### before calling the context this : assets : " + getResources().getAssets() + "\n\n\n\n");
-
+        // ======================================================================================================================== Maybe load the verbs from a button that would reset the db
         // ============== file reading and loading into memory (TabVerb class)
         BufferedReader reader = null;
         int nb_verb = 0;
@@ -56,23 +56,29 @@ public class available_verbs_view extends AppCompatActivity {
                 }
             }
         }
-        /*
+        System.out.println("Verbs loaded");
         // ============= insert verbs into db
         DBHelper dbh = new DBHelper(this);
         for(int i = 0 ; i < nb_verb ; ++i){
             dbh.insertVerb(tv.arr.get(i));
         }
-        */
-        // ============= Once the file is read, we need to change each switch color
+        System.out.println("Verbs insered into db");
+
+        // ============= Once the file is read, we need to change each switch color + set its text + set if they are checked or not
 
         Switch switchView;
         for(int i = 0 ; i < nb_verb ; ++i){
             switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
             SpannableStringBuilder builder = new SpannableStringBuilder();
-            String french = tv.arr.get(i).french;
-            String eng = tv.arr.get(i).english;
-            String pre = tv.arr.get(i).preterit;
-            String pp = tv.arr.get(i).past_p;
+            Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
+            if(actual == null){
+                System.out.println("error on verb i = " + i+1);
+            }
+            String french = actual.french;
+            String eng = actual.english;
+            String pre = actual.preterit;
+            String pp = actual.past_p;
+            switchView.setChecked(actual.selected);
 
             // ================ For each verb, change the color depending on the version
             SpannableString coloredPart = new SpannableString(french);
@@ -94,6 +100,7 @@ public class available_verbs_view extends AppCompatActivity {
             switchView.setText(builder);
             // ============= set the text of the switch
         }
+        System.out.println("switch texts are all set");
 
 
 
@@ -113,7 +120,7 @@ public class available_verbs_view extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     // Update the switch state in the array
-                    tv.arr.get(FINAL_I).selected = isChecked; // use of a final varaible is mandatory here
+                    dbh.updateSelected(FINAL_I, isChecked); // use of a final varaible is mandatory here
                     // System.out.println("changing selection of i = " + FINAL_I + " now it's : " + tv.arr.get(FINAL_I).selected); // Working
                 }
             });
