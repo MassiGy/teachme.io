@@ -166,6 +166,8 @@ public class available_verbs_view extends AppCompatActivity {
             Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
             if(actual == null){
                 System.out.println("error on verb i = " + i+1);
+                // exit loop
+                break;
             }
             String french = actual.french;
             String eng = actual.english;
