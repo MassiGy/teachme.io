@@ -23,6 +23,11 @@ public class available_tests_view extends AppCompatActivity {
         to_random_test_btn = findViewById(R.id.to_random_test_btn);
         to_history_btn = findViewById(R.id.to_history_btn);
 
+        // if the list is empty go back to selection.
+        if(payload.size() == 0){
+            startActivity(new Intent(available_tests_view.this, available_verbs_view.class));
+        }
+
         to_classic_test_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -37,8 +37,6 @@ public class classic_test_view extends AppCompatActivity {
 
          // get the first in the list verb from the database.
 
-        System.out.println(selected_verbs_ids);
-
          Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
 
          // set the hint to the english tense.
