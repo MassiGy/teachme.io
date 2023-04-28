@@ -34,10 +34,10 @@ public class classic_test_view extends AppCompatActivity {
          dbh = new DBHelper(this);
          ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
 
-
+         System.out.println(selected_verbs_ids);
          // get the first in the list verb from the database.
+         Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0)+1);
 
-         Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
 
          // set the hint to the english tense.
          classic_test_english.setText(current_verb.english);
@@ -51,21 +51,9 @@ public class classic_test_view extends AppCompatActivity {
             public void onClick(View v) {
                 // code to be executed when button is clicked
 
-                // get the user data and compare them to the verb.
-                boolean current_test_passed =
-                        current_verb.french.contains(classic_test_french.getText().toString()) &&
-                        current_verb.preterit.contains(classic_test_preterit.getText().toString())&&
-                        current_verb.past_p.contains(classic_test_past_participle.getText().toString());
-
-
-
-                // if test_passed continue to the next one,
-
-
                 // otherwise, increment the fails on the list.
-
-
-
+                if(!current_verb.match(classic_test_french.getText().toString(), current_verb.english, classic_test_preterit.getText().toString(), classic_test_past_participle.getText().toString()))
+                    dbh.increment_fails(selected_verbs_ids.get(0));
 
                 // shift the list to remove the head
                 selected_verbs_ids.remove(0);
