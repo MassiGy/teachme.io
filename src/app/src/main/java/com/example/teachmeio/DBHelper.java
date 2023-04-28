@@ -112,7 +112,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     cursor.close();
                 }
                 if(english.length() < 2 || french.length() < 2 || preterit.length() < 2 || past_p.length() < 2 || nb_fails == -1){
-                    System.out.println("error on getting values for th verb with id = " + id);
+                    System.out.println("error on getting values for the verb with id = " + id);
                     cursor.close();
                 }
                 verb = new Verbs(english, french, preterit, past_p, nb_fails, selected);

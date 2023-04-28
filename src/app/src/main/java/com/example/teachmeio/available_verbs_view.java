@@ -4,6 +4,7 @@ import static java.lang.System.exit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -25,7 +26,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+
 public class available_verbs_view extends AppCompatActivity {
+    Button submit_btn;
 
     public static int NB_VERBS = 1104/4;
     DBHelper dbh;
@@ -34,6 +43,16 @@ public class available_verbs_view extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_verbs_view);
+
+        submit_btn = findViewById(R.id.submit_btn);
+
+        submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // code to be executed when button is clicked
+                startActivity(new Intent(available_verbs_view.this, available_tests_view.class));
+            }
+        });
 
         dbh = new DBHelper(this);
 
@@ -206,3 +225,5 @@ public class available_verbs_view extends AppCompatActivity {
 
 
 }
+
+
