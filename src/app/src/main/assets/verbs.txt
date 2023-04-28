@@ -1,7 +1,7 @@
 abide
 abode
 abode
-supporter / (suivi de by) se conformer à / demeurer
+supporter / se conformer à / demeurer
 arise
 arose
 arisen
@@ -73,7 +73,7 @@ casser
 breed
 bred
 bred
-élever (des animaux)
+élever
 bring
 brought
 brought
@@ -105,7 +105,7 @@ pouvoir
 cast
 cast
 cast
-jeter / distribuer (rôles)
+jeter / distribuer
 catch
 caught
 caught
@@ -121,7 +121,7 @@ choisir
 cleave
 cleft / clove
 cleft / cloven
-(se) cliver
+cliver
 cling
 clung
 clung
@@ -145,7 +145,7 @@ ramper
 crow
 crew / crowed
 crowed
-chanter (coq)
+chanter
 cut
 cut
 cut
@@ -164,7 +164,7 @@ dug
 creuser
 dive
 dived
-dived / dove (US)
+dived / dove
 plonger
 do
 did
@@ -225,7 +225,7 @@ lancer
 fly
 flew
 flown
-voler (avion ..)
+voler
 forbid
 forbade
 forbidden
@@ -329,7 +329,7 @@ incruster
 interbreed
 interbred
 interbred
-(se) croiser
+croiser
 interweave
 interwove / interweaved
 interwoven / interweaved
@@ -353,7 +353,7 @@ connaître / savoir
 lay
 laid
 laid
-poser (à plat-étendre)
+poser
 lead
 led
 led
@@ -521,7 +521,7 @@ secouer
 shear
 shore / sheared
 shorn / sheared
-tondre (animaux)
+tondre
 shed
 shed
 shed
@@ -789,11 +789,11 @@ veiller ; être éveillé
 waylay
 waylaid
 waylaid
-attaquer (sens figuré) / assaillir
+attaquer / assaillir
 wear
 wore
 worn
-porter (avoir sur soi)
+porter
 weave
 wove
 woven
@@ -841,7 +841,7 @@ se tromper dans la distribution de
 misdeal
 misdealt
 misdealt
-faire maldonne (cartes mal distribuées)
+faire / mal donner
 misdo
 misdid
 misdone
@@ -869,7 +869,7 @@ mal interpréter
 misspeak
 misspoke
 misspoken
-mal parler/ se tromper en parlant /
+mal parler/ se tromper en parlant
 misspell
 misspelt
 misspelt
@@ -1097,7 +1097,7 @@ renverser / bouleverser
 overwind
 overwound
 overwound
-trop remonter (montre)
+trop remonter
 overwrite
 overwrote
 overwritten
