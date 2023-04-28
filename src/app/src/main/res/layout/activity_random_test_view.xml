@@ -7,52 +7,6 @@
     android:background="@drawable/teachme_io_bg"
     tools:context=".random_test_view">
 
-    <TextView
-        android:id="@+id/random_test_verb"
-        android:layout_width="160dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="128dp"
-        android:text="THIS WILL BE THE RANDOM INFORMATION."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/random_test_french"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="French goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_test_verb" />
-
-    <EditText
-        android:id="@+id/random_test_preterit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_test_french"
-        tools:text="Preterit goes here." />
-
-    <EditText
-        android:id="@+id/random_test_past_participle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="108dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="P. past  goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_test_preterit" />
-
     <Button
         android:id="@+id/random_next_btn"
         android:layout_width="wrap_content"
@@ -62,4 +16,52 @@
         android:text="Next -> "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/random_test_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="English goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/random_test_french"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="French goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/random_test_english" />
+
+    <EditText
+        android:id="@+id/random_test_preterit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Preterit goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/random_test_french" />
+
+    <EditText
+        android:id="@+id/random_test_past_participle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Past participle goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/random_test_preterit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

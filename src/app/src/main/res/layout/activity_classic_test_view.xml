@@ -7,27 +7,17 @@
     android:background="@drawable/teachme_io_bg"
     tools:context=".classic_test_view">
 
-    <TextView
-        android:id="@+id/classic_test_verb"
-        android:layout_width="121dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="144dp"
-        android:text="THIS WILL BE THE VERB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/classic_test_french"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="104dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="French goes here."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classic_test_verb" />
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_english" />
 
     <EditText
         android:id="@+id/classic_test_preterit"
@@ -37,9 +27,9 @@
         android:layout_marginEnd="104dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Preterit goes here."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classic_test_french"
-        tools:text="Preterit goes here." />
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_french" />
 
     <EditText
         android:id="@+id/classic_test_past_participle"
@@ -62,4 +52,17 @@
         android:text="Next -> "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/classic_test_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="English goes here (hint)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

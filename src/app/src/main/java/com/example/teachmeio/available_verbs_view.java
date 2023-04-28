@@ -71,7 +71,7 @@ public class available_verbs_view extends AppCompatActivity {
 
 
 
-                selected_verbs_ids  = dbh.get_selected_ordered_id();
+
                 Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
 
                 payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);

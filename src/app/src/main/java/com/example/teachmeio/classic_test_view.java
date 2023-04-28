@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class classic_test_view extends AppCompatActivity {
 
     Button classic_next_btn;
-    TextView classic_test_verb;
-    EditText classic_test_french, classic_test_preterit, classic_test_past_participle;
+
+    EditText classic_test_english, classic_test_french, classic_test_preterit, classic_test_past_participle;
 
     DBHelper dbh;
 
@@ -25,7 +25,7 @@ public class classic_test_view extends AppCompatActivity {
         setContentView(R.layout.activity_classic_test_view);
 
         classic_next_btn = findViewById(R.id.classic_next_btn);
-        classic_test_verb = findViewById(R.id.classic_test_verb);
+        classic_test_english = findViewById(R.id.classic_test_english);
         classic_test_french = findViewById(R.id.classic_test_french);
         classic_test_preterit = findViewById(R.id.classic_test_preterit);
         classic_test_past_participle = findViewById(R.id.classic_test_past_participle);
@@ -42,7 +42,7 @@ public class classic_test_view extends AppCompatActivity {
          Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
 
          // set the hint to the english tense.
-         classic_test_verb.setText(current_verb.english);
+         classic_test_english.setText(current_verb.english);
 
 
 
