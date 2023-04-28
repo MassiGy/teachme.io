@@ -69,9 +69,6 @@ public class available_verbs_view extends AppCompatActivity {
             // code to be executed when button is clicked
             public void onClick(View v) {
 
-
-
-
                 Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
 
                 payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
@@ -156,8 +153,13 @@ public class available_verbs_view extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     // Update the switch state in the array
-                    dbh.updateSelected(FINAL_I+1, isChecked); // use of a final varaible is mandatory here // +1 because sql indexes are from 1
-                    // System.out.println("changing selection of i = " + FINAL_I + " now it's : " + tv.arr.get(FINAL_I).selected); // Working
+                    dbh.updateSelected(FINAL_I+1, isChecked);
+
+                    if(isChecked == true) {
+                        selected_verbs_ids.add(FINAL_I);
+                    }else{
+                        selected_verbs_ids.remove(selected_verbs_ids.indexOf(FINAL_I));
+                    }
                 }
             });
         }
