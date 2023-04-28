@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/classic_test_french"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/classic_test_verb" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/classic_test_preterit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -38,11 +38,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_french"
         tools:text="Preterit goes here." />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/classic_test_past_participle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -51,7 +51,7 @@
         android:inputType="textPersonName"
         android:text="P. past  goes here."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_preterit" />
 
     <Button
         android:id="@+id/classic_next_btn"

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class classic_test_view extends AppCompatActivity {
 
     Button classic_next_btn;
+    DBHelper dbh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +21,14 @@ public class classic_test_view extends AppCompatActivity {
 
         classic_next_btn = findViewById(R.id.classic_next_btn);
 
-
+         dbh = new DBHelper(this);
          ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
-         System.out.println(selected_verbs_ids);
+
+         Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
+
+
+
+
 
         classic_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
