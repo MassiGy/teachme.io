@@ -34,6 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     COLUMN_SELECTED + " INTEGER," +
                     COLUMN_NB_FAILS + " INTEGER" +
                     ")");
+
+
         }
 
         @Override
@@ -72,6 +74,7 @@ public class DBHelper extends SQLiteOpenHelper {
             db.insert(TABLE_NAME,null ,values);
         }
 
+
         // get a verb by its ID
         public Verbs getVerb(int id) {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -88,8 +91,11 @@ public class DBHelper extends SQLiteOpenHelper {
                     null,
                     null);
 
+
+
             Verbs verb = null;
             if (cursor.moveToFirst()) {
+                System.out.println("@@@@@@@@@@@@@@@@@");
                 String english = "", french = "", preterit = "", past_p = "";
                 int nb_fails = -1;
                 boolean selected = false;
@@ -120,6 +126,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
             cursor.close();
             db.close();
+            System.out.println("####################");
+            System.out.println(verb);
             return verb;
         }
 

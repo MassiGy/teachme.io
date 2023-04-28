@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.graphics.Color;
+import android.graphics.YuvImage;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -23,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,35 +41,117 @@ public class available_verbs_view extends AppCompatActivity {
     public static int NB_VERBS = 1104/4;
     DBHelper dbh;
 
+    public List<Integer> selected_verbs_ids= new ArrayList<Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_verbs_view);
 
+
+
+        dbh = new DBHelper(this);
+
+        // load verbs to db, the selection and fails count are suppose to be not known at this stage.
+        // they will be updated if any selection has been found in the db.
+        load_all_verbs_to_db(null, null);
+
+        //  change each switch color + set its text + set if they are checked or not
+        updateSwitchs();
+        // Store boolean values when the user checks or unchecks a switch :
+        add_boolean_listener_on_every_switch();
+
+
         submit_btn = findViewById(R.id.submit_btn);
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
+            // code to be executed when button is clicked
             public void onClick(View v) {
-                // code to be executed when button is clicked
+
+
+
+                // just before going to the next page,
+                // construct a list containing the selected verbs
+                List<Verbs> selected_verbs = new ArrayList<>();
+                for(int i = 0; i < selected_verbs_ids.size(); i++ ){
+                    if(selected_verbs_ids.get(i) == 0) break;
+
+                    selected_verbs.add(dbh.getVerb(i+1));
+                }
+
+
+                // print the list to make sure
+                System.out.println(selected_verbs);
+
                 startActivity(new Intent(available_verbs_view.this, available_tests_view.class));
             }
         });
-
-        dbh = new DBHelper(this);
-
-
-        // ============= change each switch color + set its text + set if they are checked or not
-        updateSwitchs();
-
-
-
-
-
-        // ============== Store boolean values when the user checks or unchecks a switch :
-        add_boolean_listener_on_every_switch();
     }
 
+    public void load_all_verbs_to_db(boolean[] selection_field_values, int[] fails_field_values){
+
+        TabVerb tv = new TabVerb();
+
+        // set our iterators (indecies) to a default but wrong value.
+        int selection_field_values_iterator = -1;
+        int fails_field_values_iterator = -1;
+
+        // check if the selection fields are known
+        if(selection_field_values != null)
+        {
+            selection_field_values_iterator = 0;
+        }
+        // check if the fails field are known
+        if(fails_field_values != null){
+            fails_field_values_iterator = 0;
+        }
+
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("verbs.txt")));
+            String line1, line2, line3, line4;
+
+            while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
+
+                tv.arr.add(
+                        new Verbs(
+                                line4,
+                                line1,
+                                line2,
+                                line3,
+                                // if the fails count is known, set it as such, otherwise set it to 0
+                                fails_field_values != null ? fails_field_values[fails_field_values_iterator] : 0,
+                                // if the selection field is known, set it as such, otherwise set it to false ( non selected)
+                                selection_field_values != null ? selection_field_values[selection_field_values_iterator] : false
+                        ));
+
+                // increment the iterators if used.
+                if(selection_field_values != null)
+                {
+                    selection_field_values_iterator++;
+                }
+                if(fails_field_values != null){
+                    fails_field_values_iterator++;
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        for(int i = 0 ; i < NB_VERBS ; ++i){
+            dbh.insertVerb(tv.arr.get(i));
+        }
+    }
     public void add_boolean_listener_on_every_switch(){
         Switch[] switch_arr = new Switch[NB_VERBS];
         for(int i = 0 ; i < switch_arr.length ; ++i)
@@ -87,92 +171,32 @@ public class available_verbs_view extends AppCompatActivity {
         }
     }
 
-    /*
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // close the db
-        dbh.close();
-    }
-   */
 
-    public void reset_fails(View v){
+    public void reset_fails(){
         // store the selected :
-        boolean[] selectedd = new boolean[NB_VERBS];
+        boolean[] selected = new boolean[NB_VERBS];
         for(int i = 0 ; i < NB_VERBS ; ++i)
-            selectedd[i] = dbh.getVerb(i+1).selected;
+            selected[i] = dbh.getVerb(i+1).selected;
         // drop database if exists :
         dbh.deleteDatabase(this);
-        TabVerb tv = new TabVerb();
-        //System.out.println("\n\n\n\n####### before calling the context this : assets : " + getResources().getAssets() + "\n\n\n\n");
-        // ======================================================================================================================== Maybe load the verbs from a button that would reset the db
-        // ============== file reading and loading into memory (TabVerb class)
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("verbs.txt")));
-            String line1, line2, line3, line4;
-            int it = 0;
-            while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
-                tv.arr.add(new Verbs(line4, line1, line2, line3, 0, selectedd[it]));
-                it++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        System.out.println("Verbs loaded");
-        // ============= insert verbs into db
-        for(int i = 0 ; i < NB_VERBS ; ++i){
-            dbh.insertVerb(tv.arr.get(i));
-        }
-        System.out.println("Verbs insered into db");
+
+        // load verbs respecting the selection field values.
+        load_all_verbs_to_db(selected, null);
+
         updateSwitchs();
     }
 
-    public void reset_selection(View v){
+    public void reset_selection(){
         // store the nb_fails :
         int[] nb_fails = new int[NB_VERBS];
         for(int i = 0 ; i < NB_VERBS ; ++i)
             nb_fails[i] = dbh.getVerb(i+1).nb_fails;
         // drop database if exists :
-         dbh.deleteDatabase(this);
-        TabVerb tv = new TabVerb();
-        //System.out.println("\n\n\n\n####### before calling the context this : assets : " + getResources().getAssets() + "\n\n\n\n");
-        // ======================================================================================================================== Maybe load the verbs from a button that would reset the db
-        // ============== file reading and loading into memory (TabVerb class)
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("verbs.txt")));
-            String line1, line2, line3, line4;
-            int it = 0;
-            while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
-                tv.arr.add(new Verbs(line4, line1, line2, line3, nb_fails[it], true));
-                it++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        System.out.println("Verbs loaded");
-        // ============= insert verbs into db
-        for(int i = 0 ; i < NB_VERBS ; ++i){
-            dbh.insertVerb(tv.arr.get(i));
-        }
-        System.out.println("Verbs insered into db");
+        dbh.deleteDatabase(this);
+
+        // load verbs respecting the fails values.
+        load_all_verbs_to_db(null, nb_fails);
+
         updateSwitchs();
     }
 
@@ -184,9 +208,9 @@ public class available_verbs_view extends AppCompatActivity {
             SpannableStringBuilder builder = new SpannableStringBuilder();
             Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
             if(actual == null){
-                System.out.println("error on verb i = " + i+1);
-                // exit loop
-                break;
+                System.out.println("error on verb i = " + String.valueOf(i+1));
+                // skip current loop iteration
+                continue;
             }
             String french = actual.french;
             String eng = actual.english;
@@ -194,6 +218,11 @@ public class available_verbs_view extends AppCompatActivity {
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
             switchView.setChecked(actual.selected);
+
+            // if the verb is selected, then add its id to the list
+            if(actual.selected == true ){
+                selected_verbs_ids.add(i);
+            }
 
             // ================ For each verb, change the color depending on the version
             SpannableString coloredPart = new SpannableString(french);
