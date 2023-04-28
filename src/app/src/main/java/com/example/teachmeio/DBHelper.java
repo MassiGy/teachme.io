@@ -80,11 +80,11 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     public ArrayList<Integer> get_selected_ordered_id(){
-        int nb_verb = getVerbsCount();
-        ArrayList<Verbs> res = get_selected_ordered();
+        ArrayList<Verbs> res = getVerbs();
         ArrayList<Integer> ids = new ArrayList<Integer>();
         for(int i = 0 ; i < res.size() ; ++i)
-            ids.add(res.get(i).id);
+            if(res.get(i).selected)
+                ids.add(res.get(i).id);
 
         return ids;
     }
@@ -155,6 +155,65 @@ public class DBHelper extends SQLiteOpenHelper {
             db.close();
             return verb;
         }
+
+    public ArrayList<Verbs> getVerbs() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {COLUMN_ID, COLUMN_ENGLISH, COLUMN_FRENCH, COLUMN_PRETERIT, COLUMN_PAST_P, COLUMN_NB_FAILS, COLUMN_SELECTED};
+
+
+        ArrayList<Verbs> verbsList = new ArrayList<>();
+
+        Cursor cursor = db.query(TABLE_NAME,
+                columns,
+                null,
+                null,
+                null,
+                null,
+                null); // retrieve cursor from database
+
+        if (cursor.moveToFirst()) {
+            int id = 1;
+            do {
+                String english = "", french = "", preterit = "", past_p = "";
+                int nb_fails = -1;
+                boolean selected = false;
+
+                int eng_id = cursor.getColumnIndex(COLUMN_ENGLISH);
+                int fr_id = cursor.getColumnIndex(COLUMN_FRENCH);
+                int pre_id = cursor.getColumnIndex(COLUMN_PRETERIT);
+                int past_p_id = cursor.getColumnIndex(COLUMN_PAST_P);
+                int fails_id = cursor.getColumnIndex(COLUMN_NB_FAILS);
+                int sel_id = cursor.getColumnIndex(COLUMN_SELECTED);
+                if(eng_id != -1 && fr_id != -1 && pre_id != -1 && past_p_id != -1 && fails_id != -1 && sel_id != -1) {
+                    english = cursor.getString(eng_id);
+                    french = cursor.getString(fr_id);
+                    preterit = cursor.getString(pre_id);
+                    past_p = cursor.getString(past_p_id);
+                    nb_fails = cursor.getInt(fails_id);
+                    selected = cursor.getInt(sel_id) == 1;
+                }else{
+                    System.out.println("error on column names");
+                    cursor.close();
+                    return verbsList;
+                }
+                if(english.length() < 2 || french.length() < 2 || preterit.length() < 2 || past_p.length() < 2 || nb_fails == -1){
+                    System.out.println("error on getting values for the verb with id = " + id);
+                    cursor.close();
+                    return verbsList;
+                }
+                Verbs verb = new Verbs(french, english, preterit, past_p, nb_fails, selected);
+                verb.id = id;
+                // System.out.println(id + " >>> " + verb);
+                verbsList.add(verb);
+                id++;
+                cursor.moveToNext();
+            } while (id < available_verbs_view.NB_VERBS + 1);
+        }
+        cursor.close();
+
+        return verbsList;
+    }
+
 
     public int getVerbIdByEnglishString(String englishString) {
         SQLiteDatabase db = this.getReadableDatabase();

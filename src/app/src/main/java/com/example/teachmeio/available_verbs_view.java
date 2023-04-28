@@ -164,7 +164,7 @@ public class available_verbs_view extends AppCompatActivity {
     }
 
 
-    public void reset_fails(){
+    public void reset_fails(View v){
         // store the selected :
         boolean[] selected = new boolean[NB_VERBS];
         for(int i = 0 ; i < NB_VERBS ; ++i)
@@ -178,7 +178,7 @@ public class available_verbs_view extends AppCompatActivity {
         updateSwitchs();
     }
 
-    public void reset_selection(){
+    public void reset_selection(View v){
         // store the nb_fails :
         int[] nb_fails = new int[NB_VERBS];
         for(int i = 0 ; i < NB_VERBS ; ++i)
