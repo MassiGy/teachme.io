@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "verbs.db";
@@ -59,7 +62,32 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+        public ArrayList<Verbs> get_selected_ordered(){
+            int nb_verb = getVerbsCount();
+            Verbs tmp;
+            ArrayList<Verbs> res = new ArrayList<Verbs>();
+            for(int i = 0 ; i < nb_verb ; ++i) {
+                tmp = getVerb(i + 1);
+                tmp.id = i + 1;
+                if (tmp.selected) {
+                    res.add(tmp);
+                }
+            }
+            // sort list
+            Collections.sort(res, new VerbComparator());
 
+            return res;
+        }
+
+    public ArrayList<Integer> get_selected_ordered_id(){
+        int nb_verb = getVerbsCount();
+        ArrayList<Verbs> res = get_selected_ordered();
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        for(int i = 0 ; i < res.size() ; ++i)
+            ids.add(res.get(i).id);
+
+        return ids;
+    }
 
     // Insertion of a verb into the database
         public void insertVerb(Verbs v) {
@@ -120,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     System.out.println("error on getting values for the verb with id = " + id);
                     cursor.close();
                 }
-                verb = new Verbs(english, french, preterit, past_p, nb_fails, selected);
+                verb = new Verbs(french, english, preterit, past_p, nb_fails, selected);
             }
 
             cursor.close();
@@ -174,6 +202,17 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_SELECTED, selected ? 1 : 0);
+        db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void increment_fails(int id){
+            // get the actual verb :
+        Verbs v = getVerb(id);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NB_FAILS, v.nb_fails+1);
         db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
         db.close();
     }

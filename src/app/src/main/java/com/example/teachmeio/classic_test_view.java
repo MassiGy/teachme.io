@@ -23,7 +23,7 @@ public class classic_test_view extends AppCompatActivity {
 
          dbh = new DBHelper(this);
          ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
-
+        System.out.println(selected_verbs_ids);
          Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
 
 
