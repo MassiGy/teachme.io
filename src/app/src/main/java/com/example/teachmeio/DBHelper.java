@@ -120,7 +120,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     System.out.println("error on getting values for the verb with id = " + id);
                     cursor.close();
                 }
-                verb = new Verbs(english, french, preterit, past_p, nb_fails, selected);
+                verb = new Verbs( french,english, preterit, past_p, nb_fails, selected);
             }
 
             cursor.close();
