@@ -35,7 +35,7 @@ public class classic_test_view extends AppCompatActivity {
          ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
          System.out.println(selected_verbs_ids);
          // get the first in the list verb from the database.
-         Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0) + 1);
+         Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0)+1);
 
          // set the hint to the english tense.
          classic_test_verb.setText(current_verb.english);
@@ -61,7 +61,8 @@ public class classic_test_view extends AppCompatActivity {
 
 
                 // otherwise, increment the fails on the list.
-
+                if(!current_test_passed)
+                    dbh.increment_fails(selected_verbs_ids.get(0));
 
 
 
