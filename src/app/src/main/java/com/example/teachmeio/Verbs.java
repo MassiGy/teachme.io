@@ -9,6 +9,7 @@ public class Verbs {
     public boolean selected;
 
     public int nb_fails;
+    public int id;
 
     public Verbs(){
         french = "";
@@ -17,6 +18,7 @@ public class Verbs {
         past_p = "";
         selected = true;
         nb_fails = 0;
+        id = -1;
     }
     public Verbs(String f, String e, String pre, String p_p){
         french = f;

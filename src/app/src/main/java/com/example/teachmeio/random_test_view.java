@@ -28,7 +28,6 @@ public class random_test_view extends AppCompatActivity {
 
 
 
-
         dbh = new DBHelper(this);
         ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
 
