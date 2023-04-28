@@ -95,7 +95,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
             Verbs verb = null;
             if (cursor.moveToFirst()) {
-                System.out.println("@@@@@@@@@@@@@@@@@");
                 String english = "", french = "", preterit = "", past_p = "";
                 int nb_fails = -1;
                 boolean selected = false;
@@ -126,8 +125,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
             cursor.close();
             db.close();
-            System.out.println("####################");
-            System.out.println(verb);
             return verb;
         }
 
