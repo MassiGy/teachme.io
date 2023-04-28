@@ -49,22 +49,9 @@ public class classic_test_view extends AppCompatActivity {
             public void onClick(View v) {
                 // code to be executed when button is clicked
 
-                // get the user data and compare them to the verb.
-                boolean current_test_passed =
-                        current_verb.french.contains(classic_test_french.getText().toString()) &&
-                        current_verb.preterit.contains(classic_test_preterit.getText().toString())&&
-                        current_verb.past_p.contains(classic_test_past_participle.getText().toString());
-
-
-
-                // if test_passed continue to the next one,
-
-
                 // otherwise, increment the fails on the list.
-                if(!current_test_passed)
+                if(!current_verb.match(classic_test_french.getText().toString(), current_verb.english, classic_test_preterit.getText().toString(), classic_test_past_participle.getText().toString()))
                     dbh.increment_fails(selected_verbs_ids.get(0));
-
-
 
                 // shift the list to remove the head
                 selected_verbs_ids.remove(0);

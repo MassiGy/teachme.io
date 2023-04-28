@@ -1,3 +1,5 @@
+package com.example.teachmeio;
+
 public class Verbs {
     public String french;
     public String english;
