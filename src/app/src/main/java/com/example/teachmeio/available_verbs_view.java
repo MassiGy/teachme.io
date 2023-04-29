@@ -155,6 +155,8 @@ public class available_verbs_view extends AppCompatActivity {
                     // Update the switch state in the array
                     dbh.updateSelected(FINAL_I+1, isChecked);
 
+                    System.out.println("on change triggered");
+
                     if(isChecked == true) {
                         selected_verbs_ids.add(FINAL_I);
                     }else{
@@ -167,45 +169,55 @@ public class available_verbs_view extends AppCompatActivity {
 
 
     public void reset_fails(View v){
-        // store the selected :
-        boolean[] selected = new boolean[NB_VERBS];
-        for(int i = 0 ; i < NB_VERBS ; ++i)
-            selected[i] = dbh.getVerb(i+1).selected;
-        // drop database if exists :
-        dbh.deleteDatabase(this);
 
-        // load verbs respecting the selection field values.
-        load_all_verbs_to_db(selected, null);
+        dbh.reset_fails();
 
-        updateSwitchs();
+        Switch switchView;
+        for(int i = 0 ; i < NB_VERBS ; ++i){
+            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
+
+            String oldText = switchView.getText().toString();
+
+            if(!oldText.endsWith("0")){
+                // newText = oldText with a zero instead of the number at the end.
+                String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " 0 ";
+                switchView.setText(newText);
+            }
+        }
     }
 
     public void reset_selection(View v){
-        // store the nb_fails :
-        int[] nb_fails = new int[NB_VERBS];
-        for(int i = 0 ; i < NB_VERBS ; ++i)
-            nb_fails[i] = dbh.getVerb(i+1).nb_fails;
-        // drop database if exists :
-        dbh.deleteDatabase(this);
+        /*
+        To reset the selections, only change the switch state to false,
+        then the switchOnChangeListener will be triggered to modify it
+        in the database.
 
-        // load verbs respecting the fails values.
-        load_all_verbs_to_db(null, nb_fails);
+         */
+        Switch switchView;
+        for(int i = 0 ; i < NB_VERBS ; ++i){
+            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
+            switchView.setChecked(false);
+        }
 
-        updateSwitchs();
     }
 
 
+
+
     public void updateSwitchs(){
+
         Switch switchView;
         for(int i = 0 ; i < NB_VERBS ; ++i){
             switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
             SpannableStringBuilder builder = new SpannableStringBuilder();
             Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
+
             if(actual == null){
                 System.out.println("error on verb i = " + String.valueOf(i+1));
                 // skip current loop iteration
                 continue;
             }
+
             String french = actual.french;
             String eng = actual.english;
             String pre = actual.preterit;
@@ -220,24 +232,25 @@ public class available_verbs_view extends AppCompatActivity {
 
             // ================ For each verb, change the color depending on the version
             SpannableString coloredPart = new SpannableString(french);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.GRAY), 0, french.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" ");
+            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, french.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append(coloredPart).append(" - ");
 
             coloredPart = new SpannableString(eng);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLUE), 0, eng.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" ");
+            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, eng.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append(coloredPart).append(" - ");
 
             coloredPart = new SpannableString(pre);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.CYAN), 0, pre.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" ");
+            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, pre.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append(coloredPart).append(" - ");
 
             coloredPart = new SpannableString(pp);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.RED), 0, pp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" ");
+            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, pp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append(coloredPart).append(" - ");
 
-            coloredPart = new SpannableString(fails);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.GREEN), 0, fails.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" ");
+            String text ="\n\nfails count : " +fails;
+            coloredPart = new SpannableString(text);
+            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append(coloredPart);    // do no add a seperator here.
 
             switchView.setText(builder);
             // ============= set the text of the switch
@@ -248,5 +261,3 @@ public class available_verbs_view extends AppCompatActivity {
 
 
 }
-
-

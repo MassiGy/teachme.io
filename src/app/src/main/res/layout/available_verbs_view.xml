@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:configChanges="orientation"
+    android:screenOrientation="portrait"
+    tools:ignore="LockedOrientationActivity"
     android:background="@drawable/teachme_io_bg"
     android:orientation="vertical"
     tools:context=".available_verbs_view">

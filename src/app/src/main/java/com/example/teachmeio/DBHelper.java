@@ -62,6 +62,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+
+
         public ArrayList<Verbs> get_selected_ordered(){
             int nb_verb = getVerbsCount();
             Verbs tmp;
@@ -277,6 +279,20 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NB_FAILS, v.nb_fails+1);
         db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void reset_fails(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "UPDATE "+TABLE_NAME+ " SET "+ COLUMN_NB_FAILS +" = 0;";
+        db.execSQL(sql);
+        db.close();
+    }
+
+    public void reset_selections(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "UPDATE "+TABLE_NAME+ " SET "+ COLUMN_SELECTED +" = 0 ;";
+        db.execSQL(sql);
         db.close();
     }
 

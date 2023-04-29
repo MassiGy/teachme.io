@@ -71,7 +71,11 @@ public class classic_test_view extends AppCompatActivity {
                 }
 
                 // shift the list to remove the head
+
+
                 selected_verbs_ids.remove(0);
+
+
 
                 Intent exports;
 

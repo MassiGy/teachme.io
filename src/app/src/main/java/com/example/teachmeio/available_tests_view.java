@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class available_tests_view extends AppCompatActivity {
-    Button to_classic_test_btn, to_random_test_btn, to_history_btn;
+    Button to_classic_test_btn, to_random_test_btn, to_home_btn;
     TextView score_field;
 
     @Override
@@ -24,7 +24,7 @@ public class available_tests_view extends AppCompatActivity {
 
         to_classic_test_btn = findViewById(R.id.to_classic_test_btn);
         to_random_test_btn = findViewById(R.id.to_random_test_btn);
-        to_history_btn = findViewById(R.id.to_history_btn);
+        to_home_btn = findViewById(R.id.to_home_btn);
         score_field = findViewById(R.id.score_text_field);
 
         // if the list is empty go back to selection.
@@ -49,11 +49,11 @@ public class available_tests_view extends AppCompatActivity {
                 startActivity(exports);
             }
         });
-        to_history_btn.setOnClickListener(new View.OnClickListener() {
+        to_home_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // code to be executed when button is clicked
-                startActivity(new Intent(available_tests_view.this, available_tests_view.class));
+                startActivity(new Intent(available_tests_view.this, available_verbs_view.class));
             }
         });
     }
