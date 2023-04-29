@@ -39,7 +39,7 @@ public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
 
     public static int NB_VERBS = 1104/4;
-    DBHelper dbh;
+    DBHelper dbh = new DBHelper(this);
 
     public ArrayList<Integer> selected_verbs_ids= new ArrayList<Integer>();
 
@@ -49,8 +49,6 @@ public class available_verbs_view extends AppCompatActivity {
         setContentView(R.layout.available_verbs_view);
 
 
-
-        dbh = new DBHelper(this);
 
         // load verbs to db, the selection and fails count are suppose to be not known at this stage.
         // they will be updated if any selection has been found in the db.
@@ -136,10 +134,9 @@ public class available_verbs_view extends AppCompatActivity {
                 }
             }
         }
+        Verbs[] array = new Verbs[NB_VERBS];
+        dbh.insertVerbs(tv.arr.toArray(array));
 
-        for(int i = 0 ; i < NB_VERBS ; ++i){
-            dbh.insertVerb(tv.arr.get(i));
-        }
     }
     public void add_boolean_listener_on_every_switch(){
         Switch[] switch_arr = new Switch[NB_VERBS];

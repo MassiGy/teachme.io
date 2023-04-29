@@ -104,6 +104,45 @@ public class DBHelper extends SQLiteOpenHelper {
             db.insert(TABLE_NAME,null ,values);
         }
 
+        public void insertVerbs(Verbs[] verbsArray){
+            String query = "INSERT INTO "
+                    + TABLE_NAME
+                    +"(" +
+                    COLUMN_ENGLISH + " , "+
+                    COLUMN_FRENCH + " , " +
+                    COLUMN_PRETERIT + " , " +
+                    COLUMN_PAST_P + " , " +
+                    COLUMN_NB_FAILS + " , " +
+                    COLUMN_SELECTED + "  " +
+                    ")"
+                    + " VALUES ";
+
+            int limit = verbsArray.length;
+
+            for (int i = 0; i < limit  ; i++) {
+
+                query +=
+                        " ( '" +
+                                verbsArray[i].english + "' , '" +
+                                verbsArray[i].french.replace("'","-")  + "' , '" +
+                                verbsArray[i].preterit + "' , '" +
+                                verbsArray[i].past_p + "' , " +
+                                verbsArray[i].nb_fails + " , " +
+                                verbsArray[i].selected + "  ";
+
+                if(i < limit - 1){
+                    query += " ), ";
+                } else{
+                    query +=" ); ";
+                }
+            }
+
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(query);
+            db.close();
+        }
+
 
         // get a verb by its ID
         public Verbs getVerb(int id) {
@@ -113,6 +152,8 @@ public class DBHelper extends SQLiteOpenHelper {
             String selection = COLUMN_ID + " = ?";
             String[] selectionArgs = { String.valueOf(id) };
 
+
+
             Cursor cursor = db.query(TABLE_NAME,
                     columns,
                     selection,
@@ -120,6 +161,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     null,
                     null,
                     null);
+
 
 
 
