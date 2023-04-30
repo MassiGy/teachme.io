@@ -43,7 +43,7 @@ public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
    
 
-    public static int NB_VERBS = 1104/4;
+    public static int NB_VERBS = 1108/4;
     DBHelper dbh = new DBHelper(this);
 
 

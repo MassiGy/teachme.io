@@ -13,7 +13,7 @@ manger
 awake
 awoke
 awoken
-se réveiller
+se réveiller / réveiller
 be
 was / were
 been
@@ -205,11 +205,11 @@ nourrir
 feel
 felt
 felt
-se sentir / ressentir
+se sentir / ressentir / sentir
 fight
 fought
 fought
-se battre
+se battre / battre
 find
 found
 found
@@ -217,7 +217,7 @@ trouver
 flee
 fled
 fled
-s'enfuir
+s'enfuir / enfuir
 fling
 flung
 flung
@@ -341,7 +341,7 @@ garder
 kneel
 kneeled / knelt
 kneeled / knelt
-s'agenouiller
+s'agenouiller / agenouiller
 knit
 knit / knitted
 knit / knitted
@@ -357,11 +357,11 @@ poser
 lead
 led
 led
-mener/guider
+mener / guider
 lean
 leant / leaned
 leant / leaned
-s'incliner / se pencher
+s'incliner / se pencher / incliner / pencher
 leap
 leapt / leaped
 leapt / leaped
@@ -385,7 +385,7 @@ permettre / louer
 lie
 lay
 lain
-s'allonger
+s'allonger / allonger
 light
 lighted / lit
 lighted / lit
@@ -413,7 +413,7 @@ fondre
 mow
 mowed
 mowed / mown
-tondre le gazon
+tondre le gazon / tondre la pelouse
 offset
 offset
 offset
@@ -421,7 +421,7 @@ compenser
 partake
 partook
 partaken
-prendre part à
+prendre part à / prendre part / participer
 pay
 paid
 paid
@@ -437,7 +437,7 @@ programmer
 proofread
 proofread
 proofread
-corriger les épreuves de
+corriger les épreuves de / corriger
 prove
 proved
 proved / proven
@@ -469,7 +469,7 @@ débarrasser
 ride
 rode
 ridden
-faire du cheval / voyager à bicyclette
+faire du cheval / voyager à bicyclette / faire du vélo
 ring
 rang
 rung
@@ -557,7 +557,7 @@ couler
 sit
 sat
 sat
-s'asseoir
+s'asseoir / asseoir
 slay
 slew
 slain
@@ -669,19 +669,23 @@ ficeler / enfiler des perles
 strive
 strove
 striven
-s'efforcer
+s'efforcer / efforcer
 sunburn
 sunburned / sunburnt
 sunburned / sunburnt
-prendre un coup de soleil
+prendre un coup de soleil / coup de soleil
 swear
 swore
 sworn
 jurer
 sweat
 sweat / sweated
-sweat / sweated	suer
-sweep	swept	swept	balayer
+sweat / sweated	
+suer
+sweep	
+swept	
+swept	
+balayer
 swell
 swelled
 swelled / swollen
@@ -693,7 +697,7 @@ nager
 swing
 swung
 swung
-se balancer
+se balancer / balancer
 take
 took
 taken
@@ -725,7 +729,7 @@ enfoncer
 tread
 trod
 trodden
-piétiner quelque chose
+piétiner quelque chose / piétiner
 typeset
 typeset
 typeset
@@ -753,7 +757,7 @@ subir
 underlie
 underlay
 underlain
-sous-tendre / être à la base de...
+sous-tendre / être à la base de
 undersell
 undersold
 undersold
@@ -761,7 +765,7 @@ vendre à prix bas
 underspend
 underspent
 underspent
-dépenser trop peu
+dépenser trop peu / dépenser peu
 understand
 understood
 understood
@@ -769,7 +773,7 @@ comprendre
 undertake
 undertook
 undertaken
-se charger de / entreprendre
+se charger de / entreprendre / charger de
 underwrite
 underwrote
 underwritten
@@ -825,7 +829,7 @@ retenir
 withstand
 withstood
 withstood
-résister à
+résister à / résister
 wring
 wrung
 wrung
@@ -837,7 +841,7 @@ written
 miscast
 miscast
 miscast
-se tromper dans la distribution de
+se tromper dans la distribution de / tromper dans la distribution de / se tromper dans la distribution
 misdeal
 misdealt
 misdealt
@@ -877,7 +881,7 @@ mal orthographier / mal épeler
 mistake
 misstook
 mistaken
-se méprendre
+se méprendre / méprendre
 misteach
 mistaught
 mistaught
@@ -893,7 +897,7 @@ mal écrire
 outbid
 outbid
 outbid
-enchérir sur
+enchérir sur / enchérir
 outdo
 outdid
 outdone
@@ -901,7 +905,7 @@ surpasser / exceller
 outdraw
 outdrew
 outdrawn
-devancer son adversaire
+devancer son adversaire / devancer
 outdrink
 outdrank
 outdrunk
@@ -909,7 +913,7 @@ boire trop
 outdrive
 outdrove
 outdriven
-conduire mieux que
+conduire mieux que / conduire mieux
 outfight
 outfought
 outfought
@@ -917,7 +921,7 @@ vaincre au combat
 outfly
 outflew
 outflown
-Voler mieux que
+voler mieux que / voler mieux
 outgrow
 outgrew
 outgrown
@@ -929,7 +933,7 @@ bondir / jaillir
 outride
 outrode
 outridden
-galoper plus vite que
+galoper plus vite que / galoper plus vite
 outrun
 outran
 outrun
@@ -937,7 +941,7 @@ distancer
 outsell
 outsold
 outsold
-se vendre mieux que...
+se vendre mieux que / se vendre mieux que
 outshine
 outshined / outshone
 outshined / outshone
@@ -945,11 +949,11 @@ outshined / outshone
 outshoot
 outshot
 outshot
-tirer mieux que
+tirer mieux que / tirer mieux
 outsing
 outsang
 outsung
-chanter mieux que
+chanter mieux que / chanter mieux
 outsit
 outsat
 outsat
@@ -957,11 +961,11 @@ outsat
 outsleep
 outslept
 outslept
-Dormir mieux que
+dormir mieux que / dormir mieux
 outsmell
 outsmelt
 outsmelt
-sentir mieux que
+sentir mieux que / sentir mieux
 outspeak
 outspoke
 outspoken
@@ -969,27 +973,27 @@ parler franchement / s'exprimer honnêtement
 outspeed
 outsped
 outsped
-aller plus vite que
+aller plus vite que / aller plus vite
 outspend
 outspent
 outspent
-dépenser plus que
+dépenser plus que / dépenser plus
 outswear
 outswore
 outsworn
-juger mieux que
+juger mieux que / juger mieux
 outswim
 outswam
 outswum
-nager plus vite que
+nager plus vite que / nager plus vite
 outthink
 outthought
 outthought
-penser mieux que
+penser mieux que / penser mieux
 outwrite
 outwrote
 outwritten
-écrire mieux que
+écrire mieux que / écrire mieux
 overbid
 overbid
 overbid
@@ -1005,7 +1009,7 @@ surconstruire
 overbuy
 overbought
 overbought
-acheter trop
+acheter trop / trop acheter
 overcome
 overcame
 overcome
@@ -1017,11 +1021,11 @@ exagérer
 overdraw
 overdrew
 overdrawn
-retirer des fonds
+retirer des fonds / retirer
 overdrink
 overdrank
 overdrunk
-boire de manière excessive
+boire de manière excessive / trop boire
 overeat
 overate
 overeaten
@@ -1049,7 +1053,7 @@ surpayer
 override
 overrode
 overridden
-sur-repasser
+sur-repasser / repasser
 overrun
 overran
 overrun
@@ -1069,7 +1073,7 @@ dépasser
 oversleep
 overslept
 overslept
-se réveiller trop tard
+se réveiller trop tard / réveiller trop tard
 overspeak
 overspoken
 overspoke
@@ -1077,7 +1081,7 @@ parler trop / bavarder
 overspend
 overspent
 overspent
-dépenser sans compter
+dépenser sans compter / dépenser
 overspill
 overspilled / overspilt
 overspilled / overspilt
@@ -1089,7 +1093,7 @@ dépasser / doubler
 overthink
 overthought
 overthought
-trop réfléchir
+trop réfléchir / réfléchir
 overthrow
 overthrew
 overthrown

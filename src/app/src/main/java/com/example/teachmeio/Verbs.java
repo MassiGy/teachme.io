@@ -41,21 +41,20 @@ public class Verbs {
     public String toString(){
         return french +" \t"+ english +" \t"+ preterit +" \t"+ past_p;
     }
-
     private boolean field_matched(String field, String to_test){
         if(field.contains("/")){
             String[] arr = field.trim().split("/");
             for(int i = 0 ; i < arr.length ; i++){
-                System.out.println("test de |" + arr[i].trim() + "| et |" + to_test.trim() + "|");
-                if(arr[i].trim().equals(to_test.trim())){ 
+                System.out.println("test of |" + arr[i].trim() + "| and |" + to_test.trim() + "|");
+                if(arr[i].trim().equalsIgnoreCase(to_test.trim())){ 
                     System.out.println("OK");
                     return true;
                 }
             }
             return false;
         }
-        System.out.println("test de |" + field.trim() + "| et |" + to_test.trim() + "|");
-        return to_test.trim().equals(field.trim());
+        System.out.println("test of |" + field.trim() + "| and |" + to_test.trim() + "|");
+        return to_test.trim().equalsIgnoreCase(field.trim());
     }
 
     public boolean match(String f, String e, String pre, String p_p){
