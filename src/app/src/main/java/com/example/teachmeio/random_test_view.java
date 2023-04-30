@@ -2,11 +2,13 @@ package com.example.teachmeio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -86,8 +88,14 @@ public class random_test_view extends AppCompatActivity {
                         random_test_past_participle.getText().toString())
                 ){
                     dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context, "fail", Toast.LENGTH_SHORT);
+                    toast.show();
                 }else{
                     current_score++;
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context, "success", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
 
                 // shift the list to remove the head

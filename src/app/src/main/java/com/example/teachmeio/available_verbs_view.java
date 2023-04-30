@@ -150,11 +150,16 @@ public class available_verbs_view extends AppCompatActivity {
             switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
 
             String oldText = switchView.getText().toString();
+            SpannableStringBuilder builder = new SpannableStringBuilder();
 
             if(!oldText.endsWith("0")){
                 // newText = oldText with a zero instead of the number at the end.
                 String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " 0 ";
-                switchView.setText(newText);
+                SpannableString coloredPart = new SpannableString(newText);
+                coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                builder.append(coloredPart);
+
+                switchView.setText(builder);
             }
         }
     }
@@ -208,7 +213,7 @@ public class available_verbs_view extends AppCompatActivity {
                     "en: " + eng + "\n" +
                     "preterit: " + pre + "\n"+
                     "past.p: " + pp + "\n"
-                    + "\n\nfails count : " +fails;
+                    + "\nfails count: " +fails;
 
             SpannableString coloredPart = new SpannableString(text);
 

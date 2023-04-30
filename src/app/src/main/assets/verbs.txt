@@ -15,7 +15,7 @@ awoke
 awoken
 se réveiller
 be
-was, were
+was / were
 been
 être
 bear
@@ -53,7 +53,7 @@ offrir / faire une enchère / demander
 bind
 bound
 bound
-engager, lier
+engager / lier
 bite
 bit
 bitten
@@ -65,7 +65,7 @@ saigner
 blow
 blew
 blown
-souffler, gonfler
+souffler / gonfler
 break
 broke
 broken
@@ -81,7 +81,7 @@ apporter
 broadcast
 broadcast
 broadcast
-diffuser, émettre
+diffuser / émettre
 build
 built
 built
@@ -111,8 +111,8 @@ caught
 caught
 attraper
 chide
-chid, chode
-chid, chidden
+chid / chode
+chid / chidden
 gronder
 choose
 chose
@@ -381,7 +381,7 @@ prêter
 let
 let
 let
-permettre, louer
+permettre / louer
 lie
 lay
 lain
@@ -469,7 +469,7 @@ débarrasser
 ride
 rode
 ridden
-faire du cheval, voyager à bicyclette
+faire du cheval / voyager à bicyclette
 ring
 rang
 rung
@@ -785,7 +785,7 @@ renverser
 wake
 waked / woke
 waked / woken
-veiller ; être éveillé
+veiller / être éveillé
 waylay
 waylaid
 waylaid
