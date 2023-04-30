@@ -49,9 +49,7 @@ public class available_verbs_view extends AppCompatActivity {
 
     public ArrayList<Integer> selected_verbs_ids= new ArrayList<Integer>();
     @Override
-    public void onBackPressed() {
-        finish();
-    }
+    public void onBackPressed() {}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -215,6 +213,7 @@ public class available_verbs_view extends AppCompatActivity {
             String pre = actual.preterit;
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
+            System.out.println("´@@@@@@@@@@@@@@@" + i + " :: " + actual);
             switchView.setChecked(actual.selected);
 
             // if the verb is selected, then add its id to the list
