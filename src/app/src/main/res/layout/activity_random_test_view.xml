@@ -24,8 +24,8 @@
         android:id="@+id/random_test_english"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="108dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="English goes here."
@@ -33,23 +33,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/random_test_french"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="96dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="French goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/random_test_english" />
-
-    <EditText
         android:id="@+id/random_test_preterit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="104dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Preterit goes here."
@@ -60,11 +48,24 @@
         android:id="@+id/random_test_past_participle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="108dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Past participle goes here."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/random_test_preterit" />
+
+    <EditText
+        android:id="@+id/random_test_french"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="French goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/random_test_english" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

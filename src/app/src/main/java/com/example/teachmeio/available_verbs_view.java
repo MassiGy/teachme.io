@@ -1,42 +1,25 @@
 package com.example.teachmeio;
 
-import static java.lang.System.exit;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.YuvImage;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Switch;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class available_verbs_view extends AppCompatActivity {
@@ -47,7 +30,7 @@ public class available_verbs_view extends AppCompatActivity {
     DBHelper dbh = new DBHelper(this);
 
 
-    public ArrayList<Integer> selected_verbs_ids= new ArrayList<Integer>();
+    public ArrayList<Integer> selected_verbs_ids= new ArrayList<>();
     @Override
     public void onBackPressed() {}
     @Override
