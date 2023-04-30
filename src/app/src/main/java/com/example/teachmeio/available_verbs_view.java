@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.graphics.YuvImage;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 
 import java.io.BufferedReader;
@@ -37,9 +39,11 @@ import android.widget.TextView;
 
 public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
+   
 
     public static int NB_VERBS = 1104/4;
     DBHelper dbh = new DBHelper(this);
+
 
     public ArrayList<Integer> selected_verbs_ids= new ArrayList<Integer>();
 
@@ -49,15 +53,12 @@ public class available_verbs_view extends AppCompatActivity {
         setContentView(R.layout.available_verbs_view);
 
 
-
         // load verbs to db, the selection and fails count are suppose to be not known at this stage.
         // they will be updated if any selection has been found in the db.
         load_all_verbs_to_db(null, null);
 
         //  change each switch color + set its text + set if they are checked or not
         updateSwitchs();
-        // Store boolean values when the user checks or unchecks a switch :
-        add_boolean_listener_on_every_switch();
 
 
         submit_btn = findViewById(R.id.submit_btn);
@@ -134,36 +135,11 @@ public class available_verbs_view extends AppCompatActivity {
                 }
             }
         }
+        // insert all verbs at once for better performance.
         Verbs[] array = new Verbs[NB_VERBS];
         dbh.insertVerbs(tv.arr.toArray(array));
 
     }
-    public void add_boolean_listener_on_every_switch(){
-        Switch[] switch_arr = new Switch[NB_VERBS];
-        for(int i = 0 ; i < switch_arr.length ; ++i)
-            switch_arr[i] = (Switch)findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
-
-        // Loop through the array of switch IDs and add an OnCheckedChangeListener to each switch
-        for (int i = 0; i < switch_arr.length; i++) {
-            final int FINAL_I = i;
-            switch_arr[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    // Update the switch state in the array
-                    dbh.updateSelected(FINAL_I+1, isChecked);
-
-                    System.out.println("on change triggered");
-
-                    if(isChecked == true) {
-                        selected_verbs_ids.add(FINAL_I);
-                    }else{
-                        selected_verbs_ids.remove(selected_verbs_ids.indexOf(FINAL_I));
-                    }
-                }
-            });
-        }
-    }
-
 
     public void reset_fails(View v){
 
@@ -207,6 +183,7 @@ public class available_verbs_view extends AppCompatActivity {
         for(int i = 0 ; i < NB_VERBS ; ++i){
             switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
             SpannableStringBuilder builder = new SpannableStringBuilder();
+
             Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
 
             if(actual == null){
@@ -227,30 +204,37 @@ public class available_verbs_view extends AppCompatActivity {
                 selected_verbs_ids.add(i);
             }
 
-            // ================ For each verb, change the color depending on the version
-            SpannableString coloredPart = new SpannableString(french);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, french.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" - ");
+            String text ="fr: "+ french +"\n" +
+                    "en: " + eng + "\n" +
+                    "preterit: " + pre + "\n"+
+                    "past.p: " + pp + "\n"
+                    + "\n\nfails count : " +fails;
 
-            coloredPart = new SpannableString(eng);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, eng.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" - ");
+            SpannableString coloredPart = new SpannableString(text);
 
-            coloredPart = new SpannableString(pre);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, pre.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" - ");
-
-            coloredPart = new SpannableString(pp);
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, pp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart).append(" - ");
-
-            String text ="\n\nfails count : " +fails;
-            coloredPart = new SpannableString(text);
             coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart);    // do no add a seperator here.
+            builder.append(coloredPart);
+
 
             switchView.setText(builder);
-            // ============= set the text of the switch
+
+            // add the on change event listener to the switch.
+            final int FINAL_I = i;
+            switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    // Update the switch state in the array
+                    dbh.updateSelected(FINAL_I+1, isChecked);
+
+                    System.out.println("on change triggered");
+
+                    if(isChecked == true) {
+                        selected_verbs_ids.add(FINAL_I);
+                    }else{
+                        selected_verbs_ids.remove(selected_verbs_ids.indexOf(FINAL_I));
+                    }
+                }
+            });
         }
         System.out.println("switch texts are all set");
     }

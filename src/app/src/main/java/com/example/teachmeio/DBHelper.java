@@ -179,7 +179,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 int sel_id = cursor.getColumnIndex(COLUMN_SELECTED);
                 if(eng_id != -1 && fr_id != -1 && pre_id != -1 && past_p_id != -1 && fails_id != -1 && sel_id != -1) {
                     english = cursor.getString(eng_id);
-                    french = cursor.getString(fr_id);
+                    french = cursor.getString(fr_id).replace("-","'");
                     preterit = cursor.getString(pre_id);
                     past_p = cursor.getString(past_p_id);
                     nb_fails = cursor.getInt(fails_id);
@@ -234,7 +234,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 int sel_id = cursor.getColumnIndex(COLUMN_SELECTED);
                 if(eng_id != -1 && fr_id != -1 && pre_id != -1 && past_p_id != -1 && fails_id != -1 && sel_id != -1) {
                     english = cursor.getString(eng_id);
-                    french = cursor.getString(fr_id);
+                    french = cursor.getString(fr_id).replace("-","'");
                     preterit = cursor.getString(pre_id);
                     past_p = cursor.getString(past_p_id);
                     nb_fails = cursor.getInt(fails_id);
@@ -337,9 +337,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
         db.close();
     }
-
-
-
 
 }
 

@@ -9,13 +9,17 @@
     tools:ignore="LockedOrientationActivity"
     android:background="@drawable/teachme_io_bg"
     android:orientation="vertical"
+
     tools:context=".available_verbs_view">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         tools:context=".MainActivity">
+
+
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -28,32 +32,35 @@
                 android:layout_margin="20dp"
                 android:orientation="vertical">
 
+
+
+
                 <Button
                     android:id="@+id/reset_selection"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/reset_arrow"
                     android:drawablePadding="8dp"
                     android:onClick="reset_selection"
-                    android:text="R selection"
-                    android:textColor="@android:color/black"
+                    android:text="Reset selection"
+                    android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/reset_fails"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/reset_arrow"
                     android:drawablePadding="8dp"
                     android:onClick="reset_fails"
-                    android:text="R fails"
-                    android:textColor="@android:color/black"
+                    android:text="Reset fails"
+                    android:textColor="@android:color/white"
                     android:textSize="16sp" />
 
 
                 <Switch
                     android:id="@+id/switch0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -64,7 +71,7 @@
 
                 <Switch
                     android:id="@+id/switch1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -75,7 +82,7 @@
 
                 <Switch
                     android:id="@+id/switch2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -86,7 +93,7 @@
 
                 <Switch
                     android:id="@+id/switch3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -97,7 +104,7 @@
 
                 <Switch
                     android:id="@+id/switch4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -108,7 +115,7 @@
 
                 <Switch
                     android:id="@+id/switch5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -119,7 +126,7 @@
 
                 <Switch
                     android:id="@+id/switch6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -130,7 +137,7 @@
 
                 <Switch
                     android:id="@+id/switch7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -141,7 +148,7 @@
 
                 <Switch
                     android:id="@+id/switch8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -152,7 +159,7 @@
 
                 <Switch
                     android:id="@+id/switch9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -163,7 +170,7 @@
 
                 <Switch
                     android:id="@+id/switch10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -174,7 +181,7 @@
 
                 <Switch
                     android:id="@+id/switch11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -185,7 +192,7 @@
 
                 <Switch
                     android:id="@+id/switch12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -196,7 +203,7 @@
 
                 <Switch
                     android:id="@+id/switch13"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -207,7 +214,7 @@
 
                 <Switch
                     android:id="@+id/switch14"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -218,7 +225,7 @@
 
                 <Switch
                     android:id="@+id/switch15"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -229,7 +236,7 @@
 
                 <Switch
                     android:id="@+id/switch16"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -240,7 +247,7 @@
 
                 <Switch
                     android:id="@+id/switch17"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -251,7 +258,7 @@
 
                 <Switch
                     android:id="@+id/switch18"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -262,7 +269,7 @@
 
                 <Switch
                     android:id="@+id/switch19"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -273,7 +280,7 @@
 
                 <Switch
                     android:id="@+id/switch20"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -284,7 +291,7 @@
 
                 <Switch
                     android:id="@+id/switch21"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -295,7 +302,7 @@
 
                 <Switch
                     android:id="@+id/switch22"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -306,7 +313,7 @@
 
                 <Switch
                     android:id="@+id/switch23"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -317,7 +324,7 @@
 
                 <Switch
                     android:id="@+id/switch24"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -328,7 +335,7 @@
 
                 <Switch
                     android:id="@+id/switch25"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -339,7 +346,7 @@
 
                 <Switch
                     android:id="@+id/switch26"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -350,7 +357,7 @@
 
                 <Switch
                     android:id="@+id/switch27"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -361,7 +368,7 @@
 
                 <Switch
                     android:id="@+id/switch28"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -372,7 +379,7 @@
 
                 <Switch
                     android:id="@+id/switch29"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -383,7 +390,7 @@
 
                 <Switch
                     android:id="@+id/switch30"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -394,7 +401,7 @@
 
                 <Switch
                     android:id="@+id/switch31"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -405,7 +412,7 @@
 
                 <Switch
                     android:id="@+id/switch32"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -416,7 +423,7 @@
 
                 <Switch
                     android:id="@+id/switch33"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -427,7 +434,7 @@
 
                 <Switch
                     android:id="@+id/switch34"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -438,7 +445,7 @@
 
                 <Switch
                     android:id="@+id/switch35"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -449,7 +456,7 @@
 
                 <Switch
                     android:id="@+id/switch36"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -460,7 +467,7 @@
 
                 <Switch
                     android:id="@+id/switch37"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -471,7 +478,7 @@
 
                 <Switch
                     android:id="@+id/switch38"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -482,7 +489,7 @@
 
                 <Switch
                     android:id="@+id/switch39"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -493,7 +500,7 @@
 
                 <Switch
                     android:id="@+id/switch40"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -504,7 +511,7 @@
 
                 <Switch
                     android:id="@+id/switch41"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -515,7 +522,7 @@
 
                 <Switch
                     android:id="@+id/switch42"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -526,7 +533,7 @@
 
                 <Switch
                     android:id="@+id/switch43"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -537,7 +544,7 @@
 
                 <Switch
                     android:id="@+id/switch44"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -548,7 +555,7 @@
 
                 <Switch
                     android:id="@+id/switch45"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -559,7 +566,7 @@
 
                 <Switch
                     android:id="@+id/switch46"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -570,7 +577,7 @@
 
                 <Switch
                     android:id="@+id/switch47"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -581,7 +588,7 @@
 
                 <Switch
                     android:id="@+id/switch48"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -592,7 +599,7 @@
 
                 <Switch
                     android:id="@+id/switch49"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -603,7 +610,7 @@
 
                 <Switch
                     android:id="@+id/switch50"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -614,7 +621,7 @@
 
                 <Switch
                     android:id="@+id/switch51"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -625,7 +632,7 @@
 
                 <Switch
                     android:id="@+id/switch52"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -636,7 +643,7 @@
 
                 <Switch
                     android:id="@+id/switch53"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -647,7 +654,7 @@
 
                 <Switch
                     android:id="@+id/switch54"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -658,7 +665,7 @@
 
                 <Switch
                     android:id="@+id/switch55"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -669,7 +676,7 @@
 
                 <Switch
                     android:id="@+id/switch56"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -680,7 +687,7 @@
 
                 <Switch
                     android:id="@+id/switch57"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -691,7 +698,7 @@
 
                 <Switch
                     android:id="@+id/switch58"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -702,7 +709,7 @@
 
                 <Switch
                     android:id="@+id/switch59"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -713,7 +720,7 @@
 
                 <Switch
                     android:id="@+id/switch60"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -724,7 +731,7 @@
 
                 <Switch
                     android:id="@+id/switch61"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -735,7 +742,7 @@
 
                 <Switch
                     android:id="@+id/switch62"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -746,7 +753,7 @@
 
                 <Switch
                     android:id="@+id/switch63"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -757,7 +764,7 @@
 
                 <Switch
                     android:id="@+id/switch64"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -768,7 +775,7 @@
 
                 <Switch
                     android:id="@+id/switch65"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -779,7 +786,7 @@
 
                 <Switch
                     android:id="@+id/switch66"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -790,7 +797,7 @@
 
                 <Switch
                     android:id="@+id/switch67"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -801,7 +808,7 @@
 
                 <Switch
                     android:id="@+id/switch68"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -812,7 +819,7 @@
 
                 <Switch
                     android:id="@+id/switch69"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -823,7 +830,7 @@
 
                 <Switch
                     android:id="@+id/switch70"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -834,7 +841,7 @@
 
                 <Switch
                     android:id="@+id/switch71"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -845,7 +852,7 @@
 
                 <Switch
                     android:id="@+id/switch72"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -856,7 +863,7 @@
 
                 <Switch
                     android:id="@+id/switch73"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -867,7 +874,7 @@
 
                 <Switch
                     android:id="@+id/switch74"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -878,7 +885,7 @@
 
                 <Switch
                     android:id="@+id/switch75"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -889,7 +896,7 @@
 
                 <Switch
                     android:id="@+id/switch76"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -900,7 +907,7 @@
 
                 <Switch
                     android:id="@+id/switch77"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -911,7 +918,7 @@
 
                 <Switch
                     android:id="@+id/switch78"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -922,7 +929,7 @@
 
                 <Switch
                     android:id="@+id/switch79"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -933,7 +940,7 @@
 
                 <Switch
                     android:id="@+id/switch80"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -944,7 +951,7 @@
 
                 <Switch
                     android:id="@+id/switch81"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -955,7 +962,7 @@
 
                 <Switch
                     android:id="@+id/switch82"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -966,7 +973,7 @@
 
                 <Switch
                     android:id="@+id/switch83"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -977,7 +984,7 @@
 
                 <Switch
                     android:id="@+id/switch84"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -988,7 +995,7 @@
 
                 <Switch
                     android:id="@+id/switch85"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -999,7 +1006,7 @@
 
                 <Switch
                     android:id="@+id/switch86"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1010,7 +1017,7 @@
 
                 <Switch
                     android:id="@+id/switch87"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1021,7 +1028,7 @@
 
                 <Switch
                     android:id="@+id/switch88"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1032,7 +1039,7 @@
 
                 <Switch
                     android:id="@+id/switch89"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1043,7 +1050,7 @@
 
                 <Switch
                     android:id="@+id/switch90"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1054,7 +1061,7 @@
 
                 <Switch
                     android:id="@+id/switch91"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1065,7 +1072,7 @@
 
                 <Switch
                     android:id="@+id/switch92"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1076,7 +1083,7 @@
 
                 <Switch
                     android:id="@+id/switch93"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1087,7 +1094,7 @@
 
                 <Switch
                     android:id="@+id/switch94"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1098,7 +1105,7 @@
 
                 <Switch
                     android:id="@+id/switch95"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1109,7 +1116,7 @@
 
                 <Switch
                     android:id="@+id/switch96"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1120,7 +1127,7 @@
 
                 <Switch
                     android:id="@+id/switch97"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1131,7 +1138,7 @@
 
                 <Switch
                     android:id="@+id/switch98"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1142,7 +1149,7 @@
 
                 <Switch
                     android:id="@+id/switch99"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1153,7 +1160,7 @@
 
                 <Switch
                     android:id="@+id/switch100"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1164,7 +1171,7 @@
 
                 <Switch
                     android:id="@+id/switch101"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1175,7 +1182,7 @@
 
                 <Switch
                     android:id="@+id/switch102"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1186,7 +1193,7 @@
 
                 <Switch
                     android:id="@+id/switch103"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1197,7 +1204,7 @@
 
                 <Switch
                     android:id="@+id/switch104"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1208,7 +1215,7 @@
 
                 <Switch
                     android:id="@+id/switch105"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1219,7 +1226,7 @@
 
                 <Switch
                     android:id="@+id/switch106"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1230,7 +1237,7 @@
 
                 <Switch
                     android:id="@+id/switch107"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1241,7 +1248,7 @@
 
                 <Switch
                     android:id="@+id/switch108"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1252,7 +1259,7 @@
 
                 <Switch
                     android:id="@+id/switch109"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1263,7 +1270,7 @@
 
                 <Switch
                     android:id="@+id/switch110"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1274,7 +1281,7 @@
 
                 <Switch
                     android:id="@+id/switch111"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1285,7 +1292,7 @@
 
                 <Switch
                     android:id="@+id/switch112"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1296,7 +1303,7 @@
 
                 <Switch
                     android:id="@+id/switch113"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1307,7 +1314,7 @@
 
                 <Switch
                     android:id="@+id/switch114"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1318,7 +1325,7 @@
 
                 <Switch
                     android:id="@+id/switch115"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1329,7 +1336,7 @@
 
                 <Switch
                     android:id="@+id/switch116"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1340,7 +1347,7 @@
 
                 <Switch
                     android:id="@+id/switch117"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1351,7 +1358,7 @@
 
                 <Switch
                     android:id="@+id/switch118"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1362,7 +1369,7 @@
 
                 <Switch
                     android:id="@+id/switch119"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1373,7 +1380,7 @@
 
                 <Switch
                     android:id="@+id/switch120"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1384,7 +1391,7 @@
 
                 <Switch
                     android:id="@+id/switch121"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1395,7 +1402,7 @@
 
                 <Switch
                     android:id="@+id/switch122"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1406,7 +1413,7 @@
 
                 <Switch
                     android:id="@+id/switch123"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1417,7 +1424,7 @@
 
                 <Switch
                     android:id="@+id/switch124"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1428,7 +1435,7 @@
 
                 <Switch
                     android:id="@+id/switch125"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1439,7 +1446,7 @@
 
                 <Switch
                     android:id="@+id/switch126"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1450,7 +1457,7 @@
 
                 <Switch
                     android:id="@+id/switch127"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1461,7 +1468,7 @@
 
                 <Switch
                     android:id="@+id/switch128"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1472,7 +1479,7 @@
 
                 <Switch
                     android:id="@+id/switch129"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1483,7 +1490,7 @@
 
                 <Switch
                     android:id="@+id/switch130"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1494,7 +1501,7 @@
 
                 <Switch
                     android:id="@+id/switch131"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1505,7 +1512,7 @@
 
                 <Switch
                     android:id="@+id/switch132"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1516,7 +1523,7 @@
 
                 <Switch
                     android:id="@+id/switch133"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1527,7 +1534,7 @@
 
                 <Switch
                     android:id="@+id/switch134"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1538,7 +1545,7 @@
 
                 <Switch
                     android:id="@+id/switch135"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1549,7 +1556,7 @@
 
                 <Switch
                     android:id="@+id/switch136"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1560,7 +1567,7 @@
 
                 <Switch
                     android:id="@+id/switch137"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1571,7 +1578,7 @@
 
                 <Switch
                     android:id="@+id/switch138"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1582,7 +1589,7 @@
 
                 <Switch
                     android:id="@+id/switch139"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1593,7 +1600,7 @@
 
                 <Switch
                     android:id="@+id/switch140"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1604,7 +1611,7 @@
 
                 <Switch
                     android:id="@+id/switch141"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1615,7 +1622,7 @@
 
                 <Switch
                     android:id="@+id/switch142"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1626,7 +1633,7 @@
 
                 <Switch
                     android:id="@+id/switch143"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1637,7 +1644,7 @@
 
                 <Switch
                     android:id="@+id/switch144"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1648,7 +1655,7 @@
 
                 <Switch
                     android:id="@+id/switch145"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1659,7 +1666,7 @@
 
                 <Switch
                     android:id="@+id/switch146"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1670,7 +1677,7 @@
 
                 <Switch
                     android:id="@+id/switch147"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1681,7 +1688,7 @@
 
                 <Switch
                     android:id="@+id/switch148"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1692,7 +1699,7 @@
 
                 <Switch
                     android:id="@+id/switch149"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1703,7 +1710,7 @@
 
                 <Switch
                     android:id="@+id/switch150"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1714,7 +1721,7 @@
 
                 <Switch
                     android:id="@+id/switch151"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1725,7 +1732,7 @@
 
                 <Switch
                     android:id="@+id/switch152"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1736,7 +1743,7 @@
 
                 <Switch
                     android:id="@+id/switch153"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1747,7 +1754,7 @@
 
                 <Switch
                     android:id="@+id/switch154"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1758,7 +1765,7 @@
 
                 <Switch
                     android:id="@+id/switch155"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1769,7 +1776,7 @@
 
                 <Switch
                     android:id="@+id/switch156"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1780,7 +1787,7 @@
 
                 <Switch
                     android:id="@+id/switch157"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1791,7 +1798,7 @@
 
                 <Switch
                     android:id="@+id/switch158"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1802,7 +1809,7 @@
 
                 <Switch
                     android:id="@+id/switch159"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1813,7 +1820,7 @@
 
                 <Switch
                     android:id="@+id/switch160"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1824,7 +1831,7 @@
 
                 <Switch
                     android:id="@+id/switch161"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1835,7 +1842,7 @@
 
                 <Switch
                     android:id="@+id/switch162"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1846,7 +1853,7 @@
 
                 <Switch
                     android:id="@+id/switch163"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1857,7 +1864,7 @@
 
                 <Switch
                     android:id="@+id/switch164"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1868,7 +1875,7 @@
 
                 <Switch
                     android:id="@+id/switch165"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1879,7 +1886,7 @@
 
                 <Switch
                     android:id="@+id/switch166"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1890,7 +1897,7 @@
 
                 <Switch
                     android:id="@+id/switch167"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1901,7 +1908,7 @@
 
                 <Switch
                     android:id="@+id/switch168"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1912,7 +1919,7 @@
 
                 <Switch
                     android:id="@+id/switch169"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1923,7 +1930,7 @@
 
                 <Switch
                     android:id="@+id/switch170"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1934,7 +1941,7 @@
 
                 <Switch
                     android:id="@+id/switch171"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1945,7 +1952,7 @@
 
                 <Switch
                     android:id="@+id/switch172"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1956,7 +1963,7 @@
 
                 <Switch
                     android:id="@+id/switch173"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1967,7 +1974,7 @@
 
                 <Switch
                     android:id="@+id/switch174"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1978,7 +1985,7 @@
 
                 <Switch
                     android:id="@+id/switch175"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -1989,7 +1996,7 @@
 
                 <Switch
                     android:id="@+id/switch176"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2000,7 +2007,7 @@
 
                 <Switch
                     android:id="@+id/switch177"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2011,7 +2018,7 @@
 
                 <Switch
                     android:id="@+id/switch178"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2022,7 +2029,7 @@
 
                 <Switch
                     android:id="@+id/switch179"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2033,7 +2040,7 @@
 
                 <Switch
                     android:id="@+id/switch180"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2044,7 +2051,7 @@
 
                 <Switch
                     android:id="@+id/switch181"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2055,7 +2062,7 @@
 
                 <Switch
                     android:id="@+id/switch182"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2066,7 +2073,7 @@
 
                 <Switch
                     android:id="@+id/switch183"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2077,7 +2084,7 @@
 
                 <Switch
                     android:id="@+id/switch184"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2088,7 +2095,7 @@
 
                 <Switch
                     android:id="@+id/switch185"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2099,7 +2106,7 @@
 
                 <Switch
                     android:id="@+id/switch186"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2110,7 +2117,7 @@
 
                 <Switch
                     android:id="@+id/switch187"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2121,7 +2128,7 @@
 
                 <Switch
                     android:id="@+id/switch188"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2132,7 +2139,7 @@
 
                 <Switch
                     android:id="@+id/switch189"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2143,7 +2150,7 @@
 
                 <Switch
                     android:id="@+id/switch190"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2154,7 +2161,7 @@
 
                 <Switch
                     android:id="@+id/switch191"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2165,7 +2172,7 @@
 
                 <Switch
                     android:id="@+id/switch192"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2176,7 +2183,7 @@
 
                 <Switch
                     android:id="@+id/switch193"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2187,7 +2194,7 @@
 
                 <Switch
                     android:id="@+id/switch194"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2198,7 +2205,7 @@
 
                 <Switch
                     android:id="@+id/switch195"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2209,7 +2216,7 @@
 
                 <Switch
                     android:id="@+id/switch196"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2220,7 +2227,7 @@
 
                 <Switch
                     android:id="@+id/switch197"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2231,7 +2238,7 @@
 
                 <Switch
                     android:id="@+id/switch198"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2242,7 +2249,7 @@
 
                 <Switch
                     android:id="@+id/switch199"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2253,7 +2260,7 @@
 
                 <Switch
                     android:id="@+id/switch200"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2264,7 +2271,7 @@
 
                 <Switch
                     android:id="@+id/switch201"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2275,7 +2282,7 @@
 
                 <Switch
                     android:id="@+id/switch202"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2286,7 +2293,7 @@
 
                 <Switch
                     android:id="@+id/switch203"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2297,7 +2304,7 @@
 
                 <Switch
                     android:id="@+id/switch204"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2308,7 +2315,7 @@
 
                 <Switch
                     android:id="@+id/switch205"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2319,7 +2326,7 @@
 
                 <Switch
                     android:id="@+id/switch206"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2330,7 +2337,7 @@
 
                 <Switch
                     android:id="@+id/switch207"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2341,7 +2348,7 @@
 
                 <Switch
                     android:id="@+id/switch208"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2352,7 +2359,7 @@
 
                 <Switch
                     android:id="@+id/switch209"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2363,7 +2370,7 @@
 
                 <Switch
                     android:id="@+id/switch210"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2374,7 +2381,7 @@
 
                 <Switch
                     android:id="@+id/switch211"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2385,7 +2392,7 @@
 
                 <Switch
                     android:id="@+id/switch212"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2396,7 +2403,7 @@
 
                 <Switch
                     android:id="@+id/switch213"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2407,7 +2414,7 @@
 
                 <Switch
                     android:id="@+id/switch214"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2418,7 +2425,7 @@
 
                 <Switch
                     android:id="@+id/switch215"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2429,7 +2436,7 @@
 
                 <Switch
                     android:id="@+id/switch216"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2440,7 +2447,7 @@
 
                 <Switch
                     android:id="@+id/switch217"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2451,7 +2458,7 @@
 
                 <Switch
                     android:id="@+id/switch218"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2462,7 +2469,7 @@
 
                 <Switch
                     android:id="@+id/switch219"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2473,7 +2480,7 @@
 
                 <Switch
                     android:id="@+id/switch220"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2484,7 +2491,7 @@
 
                 <Switch
                     android:id="@+id/switch221"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2495,7 +2502,7 @@
 
                 <Switch
                     android:id="@+id/switch222"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2506,7 +2513,7 @@
 
                 <Switch
                     android:id="@+id/switch223"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2517,7 +2524,7 @@
 
                 <Switch
                     android:id="@+id/switch224"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2528,7 +2535,7 @@
 
                 <Switch
                     android:id="@+id/switch225"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2539,7 +2546,7 @@
 
                 <Switch
                     android:id="@+id/switch226"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2550,7 +2557,7 @@
 
                 <Switch
                     android:id="@+id/switch227"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2561,7 +2568,7 @@
 
                 <Switch
                     android:id="@+id/switch228"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2572,7 +2579,7 @@
 
                 <Switch
                     android:id="@+id/switch229"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2583,7 +2590,7 @@
 
                 <Switch
                     android:id="@+id/switch230"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2594,7 +2601,7 @@
 
                 <Switch
                     android:id="@+id/switch231"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2605,7 +2612,7 @@
 
                 <Switch
                     android:id="@+id/switch232"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2616,7 +2623,7 @@
 
                 <Switch
                     android:id="@+id/switch233"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2627,7 +2634,7 @@
 
                 <Switch
                     android:id="@+id/switch234"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2638,7 +2645,7 @@
 
                 <Switch
                     android:id="@+id/switch235"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2649,7 +2656,7 @@
 
                 <Switch
                     android:id="@+id/switch236"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2660,7 +2667,7 @@
 
                 <Switch
                     android:id="@+id/switch237"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2671,7 +2678,7 @@
 
                 <Switch
                     android:id="@+id/switch238"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2682,7 +2689,7 @@
 
                 <Switch
                     android:id="@+id/switch239"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2693,7 +2700,7 @@
 
                 <Switch
                     android:id="@+id/switch240"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2704,7 +2711,7 @@
 
                 <Switch
                     android:id="@+id/switch241"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2715,7 +2722,7 @@
 
                 <Switch
                     android:id="@+id/switch242"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2726,7 +2733,7 @@
 
                 <Switch
                     android:id="@+id/switch243"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2737,7 +2744,7 @@
 
                 <Switch
                     android:id="@+id/switch244"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2748,7 +2755,7 @@
 
                 <Switch
                     android:id="@+id/switch245"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2759,7 +2766,7 @@
 
                 <Switch
                     android:id="@+id/switch246"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2770,7 +2777,7 @@
 
                 <Switch
                     android:id="@+id/switch247"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2781,7 +2788,7 @@
 
                 <Switch
                     android:id="@+id/switch248"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2792,7 +2799,7 @@
 
                 <Switch
                     android:id="@+id/switch249"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2803,7 +2810,7 @@
 
                 <Switch
                     android:id="@+id/switch250"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2814,7 +2821,7 @@
 
                 <Switch
                     android:id="@+id/switch251"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2825,7 +2832,7 @@
 
                 <Switch
                     android:id="@+id/switch252"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2836,7 +2843,7 @@
 
                 <Switch
                     android:id="@+id/switch253"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2847,7 +2854,7 @@
 
                 <Switch
                     android:id="@+id/switch254"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2858,7 +2865,7 @@
 
                 <Switch
                     android:id="@+id/switch255"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2869,7 +2876,7 @@
 
                 <Switch
                     android:id="@+id/switch256"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2880,7 +2887,7 @@
 
                 <Switch
                     android:id="@+id/switch257"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2891,7 +2898,7 @@
 
                 <Switch
                     android:id="@+id/switch258"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2902,7 +2909,7 @@
 
                 <Switch
                     android:id="@+id/switch259"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2913,7 +2920,7 @@
 
                 <Switch
                     android:id="@+id/switch260"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2924,7 +2931,7 @@
 
                 <Switch
                     android:id="@+id/switch261"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2935,7 +2942,7 @@
 
                 <Switch
                     android:id="@+id/switch262"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2946,7 +2953,7 @@
 
                 <Switch
                     android:id="@+id/switch263"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2957,7 +2964,7 @@
 
                 <Switch
                     android:id="@+id/switch264"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2968,7 +2975,7 @@
 
                 <Switch
                     android:id="@+id/switch265"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2979,7 +2986,7 @@
 
                 <Switch
                     android:id="@+id/switch266"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -2990,7 +2997,7 @@
 
                 <Switch
                     android:id="@+id/switch267"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3001,7 +3008,7 @@
 
                 <Switch
                     android:id="@+id/switch268"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3012,7 +3019,7 @@
 
                 <Switch
                     android:id="@+id/switch269"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3023,7 +3030,7 @@
 
                 <Switch
                     android:id="@+id/switch270"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3034,7 +3041,7 @@
 
                 <Switch
                     android:id="@+id/switch271"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3045,7 +3052,7 @@
 
                 <Switch
                     android:id="@+id/switch272"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3056,7 +3063,7 @@
 
                 <Switch
                     android:id="@+id/switch273"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3067,7 +3074,7 @@
 
                 <Switch
                     android:id="@+id/switch274"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
@@ -3078,7 +3085,7 @@
 
                 <Switch
                     android:id="@+id/switch275"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="add_text"
                     android:checked="true"
