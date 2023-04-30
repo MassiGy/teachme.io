@@ -62,9 +62,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int getSelectedCount(){
+            int result = 0;
+        ArrayList<Verbs> res = getVerbs();
+        for(int i = 0 ; i  < res.size() ; ++i)
+            if(res.get(i).selected) result++;
+        return result;
+    }
 
-
-        public ArrayList<Verbs> get_selected_ordered(){
+    public ArrayList<Verbs> get_selected_ordered(){
             int nb_verb = getVerbsCount();
             Verbs tmp;
             ArrayList<Verbs> res = new ArrayList<Verbs>();

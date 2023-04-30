@@ -5,6 +5,7 @@ import static java.lang.System.exit;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.YuvImage;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class available_verbs_view extends AppCompatActivity {
@@ -67,12 +69,20 @@ public class available_verbs_view extends AppCompatActivity {
             @Override
             // code to be executed when button is clicked
             public void onClick(View v) {
+                if(dbh.getSelectedCount() == 0){
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context, "select at least one verb", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else {
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context,dbh.getSelectedCount() + " verb(s) selected" , Toast.LENGTH_SHORT);
+                    toast.show();
+                    Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
 
-                Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
+                    payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
 
-                payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
-
-                startActivity(payload);
+                    startActivity(payload);
+                }
             }
         });
     }

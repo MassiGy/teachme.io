@@ -24,11 +24,11 @@
         android:id="@+id/to_classic_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="204dp"
         android:layout_marginBottom="112dp"
         android:text="classic test."
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/to_random_test_btn"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/to_home_btn"
@@ -42,12 +42,14 @@
 
     <TextView
         android:id="@+id/score_text_field"
-        android:layout_width="116dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="144dp"
+        android:layout_width="170dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         android:text="Score : "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

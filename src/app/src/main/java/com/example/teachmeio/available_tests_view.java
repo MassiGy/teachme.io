@@ -3,7 +3,12 @@ package com.example.teachmeio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,7 +33,13 @@ public class available_tests_view extends AppCompatActivity {
         score_field = findViewById(R.id.score_text_field);
 
         // if the list is empty go back to selection.
-        score_field.setText("Score : " + String.valueOf(current_score) + "pts");
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        String txt = "Score : " + String.valueOf(current_score) + " pts";
+        SpannableString coloredPart = new SpannableString(txt);
+        coloredPart.setSpan(new ForegroundColorSpan(Color.BLUE), 0, txt.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        builder.append(coloredPart);
+
+        score_field.setText(builder);
 
 
         to_classic_test_btn.setOnClickListener(new View.OnClickListener() {
