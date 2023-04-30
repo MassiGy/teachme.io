@@ -23,6 +23,16 @@ public class classic_test_view extends AppCompatActivity {
 
     DBHelper dbh;
 
+    ArrayList<Integer> selected_verbs_ids;
+
+    @Override
+    public void onBackPressed() {
+        Intent exports;
+        exports = new Intent(classic_test_view.this, available_tests_view.class);
+        exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
+        exports.putExtra("current_score", current_score);
+        startActivity(exports);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +46,7 @@ public class classic_test_view extends AppCompatActivity {
 
 
          dbh = new DBHelper(this);
-         ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
+         selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
          current_score = getIntent().getExtras().getInt("current_score");
 
 
@@ -50,6 +60,7 @@ public class classic_test_view extends AppCompatActivity {
 
          // set the hint to the english tense.
          classic_test_english.setText(current_verb.english);
+
 
 
 

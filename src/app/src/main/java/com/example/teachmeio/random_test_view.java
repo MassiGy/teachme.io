@@ -23,7 +23,15 @@ public class random_test_view extends AppCompatActivity {
 
 
     EditText random_test_english, random_test_french, random_test_preterit, random_test_past_participle;
-
+    ArrayList<Integer> selected_verbs_ids;
+    @Override
+    public void onBackPressed() {
+        Intent exports;
+        exports = new Intent(random_test_view.this, available_tests_view.class);
+        exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
+        exports.putExtra("current_score", current_score);
+        startActivity(exports);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +45,7 @@ public class random_test_view extends AppCompatActivity {
 
 
         dbh = new DBHelper(this);
-        ArrayList<Integer> selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
+        selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
         current_score = getIntent().getExtras().getInt("current_score");
 
         System.out.println("selected_verbs_ids = " + selected_verbs_ids);

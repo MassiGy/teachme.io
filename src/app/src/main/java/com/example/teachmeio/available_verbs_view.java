@@ -48,7 +48,10 @@ public class available_verbs_view extends AppCompatActivity {
 
 
     public ArrayList<Integer> selected_verbs_ids= new ArrayList<Integer>();
-
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
