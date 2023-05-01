@@ -160,8 +160,14 @@ public class available_verbs_view extends AppCompatActivity {
     public void reset_fails(View v){
 
         // reset the fails on the database.
-        // TODO: can be put on a seperated thread, even if it is not a frequent action (performance)
-        dbh.reset_fails();
+        Thread reset_fails_differed_thread= new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dbh.reset_fails();
+            }
+        });
+        reset_fails_differed_thread.start();
+
 
         // loop through the rendered switches and change the text so as it shows 0fails.
         Switch switchView;

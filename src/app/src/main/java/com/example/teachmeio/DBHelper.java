@@ -393,11 +393,14 @@ public class DBHelper extends SQLiteOpenHelper {
         // construct our sql query.
         String sql = "UPDATE "+TABLE_NAME+ " SET "+ COLUMN_NB_FAILS +" = 0;";
 
+
+
         // request a writable state of db to write to it.
         // do it at the end to prevent blocking other processes/threads db access
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(sql);
         db.close();
+
     }
 
     public void reset_selections(){
