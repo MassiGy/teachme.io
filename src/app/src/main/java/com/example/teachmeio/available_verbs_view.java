@@ -42,6 +42,7 @@ public class available_verbs_view extends AppCompatActivity {
     public static  ArrayList<Integer> selected_verbs_ids= new ArrayList<>();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
