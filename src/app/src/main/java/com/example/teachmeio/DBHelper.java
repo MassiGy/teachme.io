@@ -373,19 +373,16 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void increment_fails(int id){
+        // construct our sql query.
+        String sql =
+                "UPDATE "+TABLE_NAME+
+                " SET "+ COLUMN_NB_FAILS +" = "+ COLUMN_NB_FAILS+ " + 1 "+
+                " WHERE "+ COLUMN_ID +" = "+ id +";";
 
-        // TODO: use an update query instead to avoid reading then writing back to db. (performance)
-
-        // get the actual verb :
-        Verbs v = getVerb(id);
-
+        // request a writable state of db to write to it.
+        // do it at the end to prevent blocking other processes/threads db access
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        // increment its fails count
-        values.put(COLUMN_NB_FAILS, v.nb_fails+1);
-        // flush it back to db.
-        db.update(TABLE_NAME, values, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.execSQL(sql);
         db.close();
     }
 
