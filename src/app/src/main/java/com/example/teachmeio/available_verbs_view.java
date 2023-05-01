@@ -135,6 +135,7 @@ public class available_verbs_view extends AppCompatActivity {
                 }
 
             }
+            System.out.println("after loading : "  + tv.arr.get(tv.arr.size() - 1));
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -194,9 +195,9 @@ public class available_verbs_view extends AppCompatActivity {
 
 
     public void updateSwitchs(){
-
+        System.out.println("id = " + dbh.getVerbIdByEnglishString("overwrite"));
         Switch switchView;
-        for(int i = 0 ; i < NB_VERBS ; ++i){
+        for(int i = 0 ; i < NB_VERBS-1 ; ++i){
             switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
             SpannableStringBuilder builder = new SpannableStringBuilder();
 
@@ -213,7 +214,8 @@ public class available_verbs_view extends AppCompatActivity {
             String pre = actual.preterit;
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
-            System.out.println("´@@@@@@@@@@@@@@@" + i + " :: " + actual);
+            if(i > NB_VERBS - 4)
+                System.out.println("´@@@@@@@@@@@@@@@" + (i+1) + " :: " + actual);
             switchView.setChecked(actual.selected);
 
             // if the verb is selected, then add its id to the list

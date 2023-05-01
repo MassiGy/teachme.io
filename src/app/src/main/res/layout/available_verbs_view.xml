@@ -3094,16 +3094,7 @@
                     android:thumbTint="#FFFF00"
                     android:trackTint="#FFFF00"/>
 
-                <Switch
-                    android:id="@+id/switch276"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="add_text"
-                    android:checked="true"
-                    android:textOn="ON"
-                    android:padding="20dp"
-                    android:thumbTint="#FFFF00"
-                    android:trackTint="#FFFF00"/>
+
 
 
 

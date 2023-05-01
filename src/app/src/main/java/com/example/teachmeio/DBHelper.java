@@ -126,7 +126,8 @@ public class DBHelper extends SQLiteOpenHelper {
             int limit = verbsArray.length;
 
             for (int i = 0; i < limit  ; i++) {
-
+                if(i > limit-3)
+                    System.out.println("i = " + i + " insertion of " + verbsArray[i]);
                 query +=
                         " ( '" +
                                 verbsArray[i].english + "' , '" +
