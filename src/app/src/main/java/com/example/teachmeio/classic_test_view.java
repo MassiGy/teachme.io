@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,6 +84,29 @@ public class classic_test_view extends AppCompatActivity {
                         classic_test_past_participle.getText().toString())
                 ){
                     dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+
+                    // get the old text
+                    String oldText = available_verbs_view.all_switches[selected_verbs_ids.get(0)].getText().toString();
+                    // get the list of all word from the old text
+                    String[] old_text_words = oldText.split(" ");
+                    // get the last word which is formatted as /fails_count\n/
+                    String last_word = old_text_words[old_text_words.length-1];
+                    // get the fails_count, remove the \n first.
+                    int fails_count = Integer.valueOf(last_word.substring(0,last_word.length()-1));
+                    // increment the fails count.
+                    fails_count++;
+
+                    // create a string builder to update the switch text
+                    SpannableStringBuilder builder = new SpannableStringBuilder();
+                    // newText = oldText with an incremented fails count.
+                    String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " "+ fails_count + "\n";
+                    SpannableString coloredPart = new SpannableString(newText);
+                    coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    builder.append(coloredPart);
+                    // set the text to the corresponding switch
+                    available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
+
+                    // inform the user about his failure.
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "fail", Toast.LENGTH_SHORT);
                     toast.show();

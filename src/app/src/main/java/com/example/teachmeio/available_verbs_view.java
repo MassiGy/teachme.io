@@ -61,55 +61,59 @@ public class available_verbs_view extends AppCompatActivity {
                     Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
 
                     payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
-
+                    linearLayout_inScrollView.removeAllViews();
                     startActivity(payload);
                 }
             }
         });
 
+        if(!all_switched_ready){
+            SwitchManager switchManager = new SwitchManager(available_verbs_view.this, dbh);
+            Thread switchManagerThread = new Thread(switchManager);
 
+            switchManagerThread.start();
+            System.out.println("after the thread lunch.");
 
-        SwitchManager switchManager = new SwitchManager(available_verbs_view.this, dbh);
-        Thread switchManagerThread = new Thread(switchManager);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                                    @Override
+                            public void run() {
+                                loadingDialog.dismissDialog();
+                                for (int i = 0; i < NB_VERBS; i++) {
 
-        switchManagerThread.start();
-        System.out.println("after the thread lunch.");
+                                    linearLayout_inScrollView.addView(all_switches[i]);
+                                    all_switches[i].setChecked(all_switches_state[i]);
 
+                                    // add the on change event listener to the switch.
+                                    final int FINAL_I = i;
+                                    all_switches[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                        @Override
+                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                            // Update the switch state in the array
+                                            dbh.updateSelected(FINAL_I+1, isChecked);
 
-        Handler handler = new Handler();
+                                            System.out.println("on change triggered");
 
-        handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingDialog.dismissDialog();
-                        for (int i = 0; i < NB_VERBS; i++) {
-
-                            linearLayout_inScrollView.addView(all_switches[i]);
-                            all_switches[i].setChecked(all_switches_state[i]);
-
-                            // add the on change event listener to the switch.
-                            final int FINAL_I = i;
-                            all_switches[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                @Override
-                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                    // Update the switch state in the array
-                                    dbh.updateSelected(FINAL_I+1, isChecked);
-
-                                    System.out.println("on change triggered");
-
-                                    if(isChecked == true) {
-                                        available_verbs_view.selected_verbs_ids.add(FINAL_I);
-                                    }else{
-                                        available_verbs_view.selected_verbs_ids.remove(available_verbs_view.selected_verbs_ids.indexOf(FINAL_I));
-                                    }
+                                            if(isChecked == true) {
+                                                available_verbs_view.selected_verbs_ids.add(FINAL_I);
+                                            }else{
+                                                available_verbs_view.selected_verbs_ids.remove(available_verbs_view.selected_verbs_ids.indexOf(FINAL_I));
+                                            }
+                                        }
+                                    });
                                 }
-                            });
+                            }
+                        },
+                    7000
+            );
+        }
+        else {
+            loadingDialog.dismissDialog();
 
-                        }
-                    }
-                },
-    7000
-        );
+            for (int i = 0; i < NB_VERBS; i++) {
+                linearLayout_inScrollView.addView(all_switches[i]);
+            }
+        }
     }
 
     public void onBackPressed() {}
