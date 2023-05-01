@@ -94,8 +94,14 @@ public class random_test_view extends AppCompatActivity {
                         random_test_past_participle.getText().toString())
                 )
                 {
-                    // TODO: execute this query on another thread (performance)
-                    dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+                    // increment fails of the current verb on a seperated thread
+                    Thread increment_fails_differed_thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+                        }
+                    });
+                    increment_fails_differed_thread.start();
 
                     // update switch text stored on all_switches_list that was constructed on home page.
                     // TODO: put this switch text manipulation to another thread since it is not a UI workload (perforamnce)
