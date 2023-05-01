@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -11,6 +12,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -24,29 +26,24 @@ import java.util.ArrayList;
 
 public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
-   
-
+    public static LinearLayout linearLayout_inScrollView;
     public static int NB_VERBS = 1108/4;
     DBHelper dbh = new DBHelper(this);
+    public static boolean all_switched_ready = false;
+    public static Switch[] all_switches = new Switch[NB_VERBS];
+    public static boolean[] all_switches_state = new boolean[NB_VERBS];
+    public static  ArrayList<Integer> selected_verbs_ids= new ArrayList<>();
 
 
-    public ArrayList<Integer> selected_verbs_ids= new ArrayList<>();
-    @Override
-    public void onBackPressed() {}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_verbs_view);
 
+        final  LoadingDialog loadingDialog = new LoadingDialog(available_verbs_view.this, null);
+        loadingDialog.startLoadingDialog();
 
-        // load verbs to db, the selection and fails count are suppose to be not known at this stage.
-        // they will be updated if any selection has been found in the db.
-        load_all_verbs_to_db(null, null);
-
-        //  change each switch color + set its text + set if they are checked or not
-        updateSwitchs();
-
-
+        linearLayout_inScrollView = findViewById(R.id.linear_layout_in_scroll_view);
         submit_btn = findViewById(R.id.submit_btn);
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
@@ -69,71 +66,53 @@ public class available_verbs_view extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        SwitchManager switchManager = new SwitchManager(available_verbs_view.this, dbh);
+        Thread switchManagerThread = new Thread(switchManager);
+
+        switchManagerThread.start();
+        System.out.println("after the thread lunch.");
+
+
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                        for (int i = 0; i < NB_VERBS; i++) {
+
+                            linearLayout_inScrollView.addView(all_switches[i]);
+                            all_switches[i].setChecked(all_switches_state[i]);
+
+                            // add the on change event listener to the switch.
+                            final int FINAL_I = i;
+                            all_switches[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                    // Update the switch state in the array
+                                    dbh.updateSelected(FINAL_I+1, isChecked);
+
+                                    System.out.println("on change triggered");
+
+                                    if(isChecked == true) {
+                                        available_verbs_view.selected_verbs_ids.add(FINAL_I);
+                                    }else{
+                                        available_verbs_view.selected_verbs_ids.remove(available_verbs_view.selected_verbs_ids.indexOf(FINAL_I));
+                                    }
+                                }
+                            });
+
+                        }
+                    }
+                },
+    7000
+        );
     }
 
-    public void load_all_verbs_to_db(boolean[] selection_field_values, int[] fails_field_values){
-
-        TabVerb tv = new TabVerb();
-
-        // set our iterators (indecies) to a default but wrong value.
-        int selection_field_values_iterator = -1;
-        int fails_field_values_iterator = -1;
-
-        // check if the selection fields are known
-        if(selection_field_values != null)
-        {
-            selection_field_values_iterator = 0;
-        }
-        // check if the fails field are known
-        if(fails_field_values != null){
-            fails_field_values_iterator = 0;
-        }
-
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(getResources().getAssets().open("verbs.txt")));
-            String line1, line2, line3, line4;
-
-            while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
-
-                tv.arr.add(
-                        new Verbs(
-                                line4,
-                                line1,
-                                line2,
-                                line3,
-                                // if the fails count is known, set it as such, otherwise set it to 0
-                                fails_field_values != null ? fails_field_values[fails_field_values_iterator] : 0,
-                                // if the selection field is known, set it as such, otherwise set it to false ( non selected)
-                                selection_field_values != null ? selection_field_values[selection_field_values_iterator] : false
-                        ));
-
-                // increment the iterators if used.
-                if(selection_field_values != null)
-                {
-                    selection_field_values_iterator++;
-                }
-                if(fails_field_values != null){
-                    fails_field_values_iterator++;
-                }
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        // insert all verbs at once for better performance.
-        Verbs[] array = new Verbs[NB_VERBS];
-        dbh.insertVerbs(tv.arr.toArray(array));
-
-    }
+    public void onBackPressed() {}
 
     public void reset_fails(View v){
 
@@ -141,14 +120,14 @@ public class available_verbs_view extends AppCompatActivity {
 
         Switch switchView;
         for(int i = 0 ; i < NB_VERBS ; ++i){
-            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
+            switchView = all_switches[i];
 
             String oldText = switchView.getText().toString();
             SpannableStringBuilder builder = new SpannableStringBuilder();
 
-            if(!oldText.endsWith("0")){
+            if(!oldText.endsWith("0\n")){
                 // newText = oldText with a zero instead of the number at the end.
-                String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " 0 ";
+                String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " 0\n";
                 SpannableString coloredPart = new SpannableString(newText);
                 coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 builder.append(coloredPart);
@@ -165,80 +144,8 @@ public class available_verbs_view extends AppCompatActivity {
         in the database.
 
          */
-        Switch switchView;
         for(int i = 0 ; i < NB_VERBS ; ++i){
-            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
-            switchView.setChecked(false);
+            all_switches[i].setChecked(false);
         }
-
     }
-
-
-
-
-    public void updateSwitchs(){
-
-        Switch switchView;
-        for(int i = 0 ; i < NB_VERBS ; ++i){
-            switchView = findViewById(getResources().getIdentifier("switch" + i, "id", getPackageName()));
-            SpannableStringBuilder builder = new SpannableStringBuilder();
-
-            Verbs actual = dbh.getVerb(i+1); // indexes of id in db starts from 1
-
-            if(actual == null){
-                System.out.println("error on verb i = " + String.valueOf(i+1));
-                // skip current loop iteration
-                continue;
-            }
-
-            String french = actual.french;
-            String eng = actual.english;
-            String pre = actual.preterit;
-            String pp = actual.past_p;
-            String fails = actual.nb_fails + "";
-            System.out.println("´@@@@@@@@@@@@@@@" + i + " :: " + actual);
-            switchView.setChecked(actual.selected);
-
-            // if the verb is selected, then add its id to the list
-            if(actual.selected == true ){
-                selected_verbs_ids.add(i);
-            }
-
-            String text ="fr: "+ french +"\n" +
-                    "en: " + eng + "\n" +
-                    "preterit: " + pre + "\n"+
-                    "past.p: " + pp + "\n"
-                    + "\nfails count: " +fails;
-
-            SpannableString coloredPart = new SpannableString(text);
-
-            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append(coloredPart);
-
-
-            switchView.setText(builder);
-
-            // add the on change event listener to the switch.
-            final int FINAL_I = i;
-            switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    // Update the switch state in the array
-                    dbh.updateSelected(FINAL_I+1, isChecked);
-
-                    System.out.println("on change triggered");
-
-                    if(isChecked == true) {
-                        selected_verbs_ids.add(FINAL_I);
-                    }else{
-                        selected_verbs_ids.remove(selected_verbs_ids.indexOf(FINAL_I));
-                    }
-                }
-            });
-        }
-        System.out.println("switch texts are all set");
-    }
-
-
-
 }
