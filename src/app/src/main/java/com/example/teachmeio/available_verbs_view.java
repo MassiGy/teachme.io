@@ -73,7 +73,7 @@ public class available_verbs_view extends AppCompatActivity {
                 }else {
                     // otherwise, confirm to the user how many verbs are selected
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context,dbh.getSelectedCount() + " verb(s) selected" , Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context,selected_verbs_ids.size() + " verb(s) selected" , Toast.LENGTH_SHORT);
                     toast.show();
 
                     // create the payload intent that will be exported to the next view

@@ -1,5 +1,7 @@
 package com.example.teachmeio;
 
+import static com.example.teachmeio.available_verbs_view.NB_VERBS;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -70,11 +72,12 @@ public class DBHelper extends SQLiteOpenHelper {
         // get the verbs selected count.
         int result = 0;
 
-        // TODO: convert the arraylist to an array to not quadratically traverse the list. Index based access on arrays
-        //  is faster then the get method. (performance)
-        ArrayList<Verbs> res = getVerbs();
-        for(int i = 0 ; i  < res.size() ; ++i)
-            if(res.get(i).selected) result++;
+
+        Verbs[] array = new Verbs[NB_VERBS];
+        array= getVerbs().toArray(array);
+
+        for(int i = 0 ; i  < array.length ; ++i)
+            if(array[i].selected) result++;
 
         return result;
     }
@@ -83,9 +86,8 @@ public class DBHelper extends SQLiteOpenHelper {
             int nb_verb = getVerbsCount();
             Verbs tmp;
 
-            // TODO: convert the arraylist to an array to not quadratically traverse the list. Index based access on arrays
-            //  is faster then the get method. (performance)
             ArrayList<Verbs> res = new ArrayList<Verbs>();
+
             for(int i = 0 ; i < nb_verb ; ++i) {
                 tmp = getVerb(i + 1);
                 tmp.id = i + 1;
@@ -100,16 +102,16 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     public ArrayList<Integer> get_selected_ordered_id(){
-        // construct a list of verbs ids in an order based on fails count ( high to low )
 
-        // TODO: convert the arraylist to an array to not quadratically traverse the list. Index based access on arrays
-        //  is faster then the get method. (performance)
-        ArrayList<Verbs> res = getVerbs();
+        // construct a list of verbs ids in an order based on fails count ( high to low )
         ArrayList<Integer> ids = new ArrayList<Integer>();
 
-        for(int i = 0 ; i < res.size() ; ++i)
-            if(res.get(i).selected)
-                ids.add(res.get(i).id);
+        Verbs[] array = new Verbs[NB_VERBS];
+        array= getVerbs().toArray(array);
+
+        for(int i = 0 ; i < array.length ; ++i)
+            if(array[i].selected)
+                ids.add(array[i].id);
 
         return ids;
     }
@@ -389,7 +391,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public void reset_fails(){
         // construct our sql query.
         String sql = "UPDATE "+TABLE_NAME+ " SET "+ COLUMN_NB_FAILS +" = 0;";
-
 
 
         // request a writable state of db to write to it.
