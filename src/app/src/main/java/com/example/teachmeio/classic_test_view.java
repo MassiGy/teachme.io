@@ -20,61 +20,54 @@ import java.util.ArrayList;
 
 public class classic_test_view extends AppCompatActivity {
 
-    Button classic_next_btn;
 
+    // set a current_score counter
     public static int current_score;
 
+
+    // declare our ui components objects
+    Button classic_next_btn;
     EditText classic_test_english, classic_test_french, classic_test_preterit, classic_test_past_participle;
 
+    // declare our database connection helper.
     DBHelper dbh;
 
+    // set a selected_verbs_ids list reference.
     ArrayList<Integer> selected_verbs_ids;
 
-    @Override
-    public void onBackPressed() {
-        Intent exports;
-        exports = new Intent(classic_test_view.this, available_tests_view.class);
-        exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
-        exports.putExtra("current_score", current_score);
-        startActivity(exports);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classic_test_view);
 
+        // map our ui components to our objects
         classic_next_btn = findViewById(R.id.classic_next_btn);
         classic_test_english = findViewById(R.id.classic_test_english);
         classic_test_french = findViewById(R.id.classic_test_french);
         classic_test_preterit = findViewById(R.id.classic_test_preterit);
         classic_test_past_participle = findViewById(R.id.classic_test_past_participle);
 
-
+         // instantiate a database connection.
          dbh = new DBHelper(this);
+
+         // get the selected_verbs_ids list from the intent
          selected_verbs_ids = getIntent().getExtras().getIntegerArrayList("selected_verbs_ids");
+         // get the user score from the intent.
          current_score = getIntent().getExtras().getInt("current_score");
 
 
 
-         System.out.println("selected_verbs_ids = " + selected_verbs_ids);
-         System.out.println("current_score = " + current_score);
-
          // get the first in the list verb from the database.
          Verbs current_verb = dbh.getVerb(selected_verbs_ids.get(0)+1);
-
 
          // set the hint to the english tense.
          classic_test_english.setText(current_verb.english);
 
-
-
-
-
-
+        // set a onclick event listener to the next btn that will trigger the user input validation.
         classic_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // code to be executed when button is clicked
 
                 // if the input and the saved tenses does not match, increment the fails on the list.
                 if(!current_verb.match(
@@ -82,8 +75,15 @@ public class classic_test_view extends AppCompatActivity {
                         current_verb.english,
                         classic_test_preterit.getText().toString(),
                         classic_test_past_participle.getText().toString())
-                ){
+                )
+                {
+                    // TODO : put this query to a seperated thread ( performance )
                     dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+
+
+
+                    // TODO: put this switch text manipulation to another thread since it is not a UI workload (perforamnce)
+                    // update switch text stored on all_switches_list that was constructed on home page.
 
                     // get the old text
                     String oldText = available_verbs_view.all_switches[selected_verbs_ids.get(0)].getText().toString();
@@ -111,6 +111,7 @@ public class classic_test_view extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, "fail", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
+                    // increment the user score.
                     current_score++;
                     // display success toast
                     Context context = getApplicationContext();
@@ -118,27 +119,32 @@ public class classic_test_view extends AppCompatActivity {
                     toast.show();
                 }
 
-                // shift the list to remove the head
-
-
+                // shift the list to remove the head ( the current test verb )
                 selected_verbs_ids.remove(0);
 
 
-
                 Intent exports;
-
                 if(selected_verbs_ids.size() > 0){
-                    // export the rest of the list to the same view
+                    // set next view to the same view ( to be tested on )
                     exports = new Intent(classic_test_view.this, classic_test_view.class);
-                }
-                else{
+                } else{
+                    // otherwise, set next view to the available test view.
                     exports = new Intent(classic_test_view.this, available_tests_view.class);
                 }
 
+                // export the rest of the list, and the score.
                 exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
                 exports.putExtra("current_score", current_score);
                 startActivity(exports);
             }
         });
+    }
+
+    public void onBackPressed() {
+        // if back pressed while an ongoing test, go back to the available test view.
+        Intent exports = new Intent(classic_test_view.this, available_tests_view.class);
+        exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
+        exports.putExtra("current_score", current_score);
+        startActivity(exports);
     }
 }
