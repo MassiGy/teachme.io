@@ -78,7 +78,7 @@ public class classic_test_view extends AppCompatActivity {
                 )
                 {
 
-                    // increment fails of the current verb
+                    // increment fails of the current verb on a seperated thread
                     Thread increment_fails_differed_thread = new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -88,33 +88,35 @@ public class classic_test_view extends AppCompatActivity {
                     increment_fails_differed_thread.start();
 
 
+                    // update the switch text on a seperated thread
+                    Thread update_switch_text_differed_thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            // update switch text stored on all_switches_list that was constructed on home page.
 
+                            // get the old text
+                            String oldText = available_verbs_view.all_switches[selected_verbs_ids.get(0)].getText().toString();
+                            // get the list of all word from the old text
+                            String[] old_text_words = oldText.split(" ");
+                            // get the last word which is formatted as /fails_count\n/
+                            String last_word = old_text_words[old_text_words.length-1];
+                            // get the fails_count, remove the \n first.
+                            int fails_count = Integer.valueOf(last_word.substring(0,last_word.length()-1));
+                            // increment the fails count.
+                            fails_count++;
 
-
-
-                    // TODO: put this switch text manipulation to another thread since it is not a UI workload (perforamnce)
-                    // update switch text stored on all_switches_list that was constructed on home page.
-
-                    // get the old text
-                    String oldText = available_verbs_view.all_switches[selected_verbs_ids.get(0)].getText().toString();
-                    // get the list of all word from the old text
-                    String[] old_text_words = oldText.split(" ");
-                    // get the last word which is formatted as /fails_count\n/
-                    String last_word = old_text_words[old_text_words.length-1];
-                    // get the fails_count, remove the \n first.
-                    int fails_count = Integer.valueOf(last_word.substring(0,last_word.length()-1));
-                    // increment the fails count.
-                    fails_count++;
-
-                    // create a string builder to update the switch text
-                    SpannableStringBuilder builder = new SpannableStringBuilder();
-                    // newText = oldText with an incremented fails count.
-                    String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " "+ fails_count + "\n";
-                    SpannableString coloredPart = new SpannableString(newText);
-                    coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    builder.append(coloredPart);
-                    // set the text to the corresponding switch
-                    available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
+                            // create a string builder to update the switch text
+                            SpannableStringBuilder builder = new SpannableStringBuilder();
+                            // newText = oldText with an incremented fails count.
+                            String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " "+ fails_count + "\n";
+                            SpannableString coloredPart = new SpannableString(newText);
+                            coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            builder.append(coloredPart);
+                            // set the text to the corresponding switch
+                            available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
+                        }
+                    });
+                    update_switch_text_differed_thread.start();
 
                     // inform the user about his failure.
                     Context context = getApplicationContext();
