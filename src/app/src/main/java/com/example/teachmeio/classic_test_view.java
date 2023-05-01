@@ -77,8 +77,18 @@ public class classic_test_view extends AppCompatActivity {
                         classic_test_past_participle.getText().toString())
                 )
                 {
-                    // TODO : put this query to a seperated thread ( performance )
-                    dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+
+                    // increment fails of the current verb
+                    Thread increment_fails_differed_thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+                        }
+                    });
+                    increment_fails_differed_thread.start();
+
+
+
 
 
 
