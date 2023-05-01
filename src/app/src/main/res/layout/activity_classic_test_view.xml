@@ -10,42 +10,6 @@
     android:background="@drawable/teachme_io_bg"
     tools:context=".classic_test_view">
 
-    <EditText
-        android:id="@+id/classic_test_french"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="French goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classic_test_english" />
-
-    <EditText
-        android:id="@+id/classic_test_preterit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Preterit goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classic_test_french" />
-
-    <EditText
-        android:id="@+id/classic_test_past_participle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="108dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="P. past  goes here."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classic_test_preterit" />
-
     <Button
         android:id="@+id/classic_next_btn"
         android:layout_width="wrap_content"
@@ -60,12 +24,48 @@
         android:id="@+id/classic_test_english"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="English goes here (hint)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/classic_test_french"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="French goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_english" />
+
+    <EditText
+        android:id="@+id/classic_test_preterit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Preterit goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_french" />
+
+    <EditText
+        android:id="@+id/classic_test_past_participle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="P. past  goes here."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classic_test_preterit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,24 +62,24 @@ public class random_test_view extends AppCompatActivity {
 
         // set the hint to a random tense.
         Random rand = new Random();
-
+        rand.setSeed(System.currentTimeMillis());
         int roll = rand.nextInt(5);
-
-        if(roll ==1){
+        System.out.println("roll = " + roll);
+        if(roll == 1){
             // set the english tense as hint
-            random_test_english.setText(current_verb.english);
+            random_test_english.setText(current_verb.getEnglish());
         }
         else if (roll == 2){
             // set the french tense as a hint
-            random_test_french.setText(current_verb.french);
+            random_test_french.setText(current_verb.getFrench());
         }
         else if (roll == 3){
-            // set the pretirit tense as a hint
-            random_test_preterit.setText(current_verb.preterit);
+            // set the preterit tense as a hint
+            random_test_preterit.setText(current_verb.getPreterit());
         }
         else {
             // set the past participle tense as hint
-            random_test_past_participle.setText(current_verb.past_p);
+            random_test_past_participle.setText(current_verb.getPast_p());
         }
 
 
@@ -96,13 +101,39 @@ public class random_test_view extends AppCompatActivity {
                         random_test_past_participle.getText().toString())
                 ){
                     dbh.increment_fails(selected_verbs_ids.get(0) + 1);
+
+                    // get the old text
+                    String oldText = available_verbs_view.all_switches[selected_verbs_ids.get(0)].getText().toString();
+                    // get the list of all word from the old text
+                    String[] old_text_words = oldText.split(" ");
+                    // get the last word which is formatted as /fails_count\n/
+                    String last_word = old_text_words[old_text_words.length-1];
+                    // get the fails_count, remove the \n first.
+                    int fails_count = Integer.valueOf(last_word.substring(0,last_word.length()-1));
+                    // increment the fails count.
+                    fails_count++;
+
+                    // create a string builder to update the switch text
+                    SpannableStringBuilder builder = new SpannableStringBuilder();
+                    // newText = oldText with an incremented fails count.
+                    String newText = oldText.substring(0, oldText.lastIndexOf(" ")) + " "+ fails_count + "\n";
+                    SpannableString coloredPart = new SpannableString(newText);
+                    coloredPart.setSpan(new ForegroundColorSpan(Color.BLACK), 0, newText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    builder.append(coloredPart);
+                    // set the text to the corresponding switch
+                    available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
+
+                    // inform the user about his failure.
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "fail", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
+                            + current_verb.getFrench() + " \t"
+                            + current_verb.getPreterit() + " \t"
+                            + current_verb.getPast_p(), Toast.LENGTH_LONG);
                     toast.show();
                 }else{
                     current_score++;
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "success", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "pass", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
@@ -112,7 +143,7 @@ public class random_test_view extends AppCompatActivity {
                 Intent exports;
                 if(selected_verbs_ids.size() > 0){
                     // export the rest of the list to the same view
-                    exports = new Intent(random_test_view.this, classic_test_view.class);
+                    exports = new Intent(random_test_view.this, random_test_view.class);
                 }
                 else{
                     exports = new Intent(random_test_view.this, available_tests_view.class);

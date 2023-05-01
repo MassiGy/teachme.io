@@ -125,7 +125,7 @@ cliver
 cling
 clung
 clung
-s'accrocher
+s'accrocher / accrocher
 clothe
 clad / clothed
 clad / clothed
@@ -237,7 +237,7 @@ prévoir
 forego
 forewent
 foregone
-renoncer / s'absternir
+renoncer / s'absternir / absternir
 foresee
 foresaw
 foreseen
