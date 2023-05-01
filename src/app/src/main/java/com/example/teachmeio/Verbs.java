@@ -38,6 +38,26 @@ public class Verbs {
         nb_fails = fails;
     }
 
+    public String getFrench(){
+        String[] arr = french.trim().split("/");
+        return arr[0].trim();
+    }
+
+    public String getEnglish(){
+        String[] arr = english.trim().split("/");
+        return arr[0].trim();
+    }
+
+    public String getPreterit(){
+        String[] arr = preterit.trim().split("/");
+        return arr[0].trim();
+    }
+
+    public String getPast_p(){
+        String[] arr = past_p.trim().split("/");
+        return arr[0].trim();
+    }
+
     public String toString(){
         return french +" \t"+ english +" \t"+ preterit +" \t"+ past_p;
     }
@@ -46,7 +66,6 @@ public class Verbs {
             String[] arr = field.trim().split("/");
             for(int i = 0 ; i < arr.length ; i++){
                 if(arr[i].trim().equalsIgnoreCase(to_test.trim()))
-                    System.out.println("OK");
                     return true;
             }
             return false;

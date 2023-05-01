@@ -80,13 +80,16 @@ public class classic_test_view extends AppCompatActivity {
                 ){
                     dbh.increment_fails(selected_verbs_ids.get(0) + 1);
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "fail", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
+                                                                    + current_verb.getFrench() + " \t"
+                                                                    + current_verb.getPreterit() + " \t"
+                                                                    + current_verb.getPast_p(), Toast.LENGTH_LONG);
                     toast.show();
                 }else{
                     current_score++;
                     // display success toast
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "success", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "pass", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 

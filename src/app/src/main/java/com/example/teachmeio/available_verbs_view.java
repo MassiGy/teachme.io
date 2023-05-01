@@ -214,8 +214,7 @@ public class available_verbs_view extends AppCompatActivity {
             String pre = actual.preterit;
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
-            if(i > NB_VERBS - 4)
-                System.out.println("´@@@@@@@@@@@@@@@" + (i+1) + " :: " + actual);
+
             switchView.setChecked(actual.selected);
 
             // if the verb is selected, then add its id to the list
