@@ -65,8 +65,7 @@ public class available_verbs_view extends AppCompatActivity {
             public void onClick(View v) {
 
                 // if no verbs are selected, inform the user.
-                // TODO: check the selected_verbs_ids list length instead (performance)
-                if(dbh.getSelectedCount() == 0){
+                if(selected_verbs_ids.size() == 0){
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "select at least one verb", Toast.LENGTH_SHORT);
                     toast.show();
