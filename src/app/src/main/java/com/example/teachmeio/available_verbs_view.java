@@ -17,31 +17,13 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/*Yes, you can use the Logcat window in Android Studio to find the source of the System.out.println() messages.
-
-        Here's how you can do it:
-
-        Open the Logcat window by clicking on the "Logcat" tab at the bottom of Android Studio.
-
-        Look for the package name of your app in the "Logcat" window. It should be displayed in the "Filter" field at the top of the window.
-
-        Click on the package name to filter the messages for your app only.
-
-        Look for the System.out messages in the log. They should be displayed in white color.
-
-        Look for the tag displayed next to the message. It should be the name of the class that contains the System.out.println() statement.
-
-        Click on the tag to show only the messages from that class.
-
-        Once you have found the source of the System.out.println() message, you can remove it or replace it with a proper logging statement using the Log class. This will make it easier to debug your app and you will have more control over the logging output.
-
-*/
 public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
 
@@ -62,6 +44,9 @@ public class available_verbs_view extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // lock the bright mode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.available_verbs_view);
 
@@ -119,7 +104,7 @@ public class available_verbs_view extends AppCompatActivity {
                                 loadingDialog.dismissDialog();
 
                                 // populate the linear_layout_in_scroll_view
-                                for (int i = 0; i < NB_VERBS; i++) {
+                                for (int i = 0; i < NB_VERBS - 1; i++) {
 
                                     linearLayout_inScrollView.addView(all_switches[i]);
 
