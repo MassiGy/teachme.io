@@ -23,7 +23,7 @@ public class available_tests_view extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent exports;
-        exports = new Intent(available_tests_view.this, available_verbs_view.class);
+        exports = new Intent(available_tests_view.this, available_verbs_view.class); // go to the verb selection screen
         startActivity(exports);
     }
     @Override

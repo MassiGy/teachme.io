@@ -106,26 +106,21 @@ public class classic_test_view extends AppCompatActivity {
                     // set the text to the corresponding switch
                     available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
 
-                    // inform the user about his failure.
+                    // inform the user about his failure by displaying a long toast with the correct information about the verb
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
+                    Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
                                                                     + current_verb.getFrench() + " \t"
                                                                     + current_verb.getPreterit() + " \t"
-                                                                    + current_verb.getPast_p(), Toast.LENGTH_LONG);
-                    toast.show();
+                                                                    + current_verb.getPast_p(), Toast.LENGTH_LONG).show();
                 }else{
                     current_score++;
                     // display success toast
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "pass", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(context, "pass", Toast.LENGTH_SHORT).show();
                 }
 
                 // shift the list to remove the head
-
-
                 selected_verbs_ids.remove(0);
-
 
 
                 Intent exports;

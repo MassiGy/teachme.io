@@ -62,9 +62,9 @@ public class random_test_view extends AppCompatActivity {
 
         // set the hint to a random tense.
         Random rand = new Random();
+        // set the seed
         rand.setSeed(System.currentTimeMillis());
         int roll = rand.nextInt(5);
-        System.out.println("roll = " + roll);
         if(roll == 1){
             // set the english tense as hint
             random_test_english.setText(current_verb.getEnglish());
@@ -81,9 +81,6 @@ public class random_test_view extends AppCompatActivity {
             // set the past participle tense as hint
             random_test_past_participle.setText(current_verb.getPast_p());
         }
-
-
-
 
 
         random_next_btn = findViewById(R.id.random_next_btn);
@@ -122,19 +119,19 @@ public class random_test_view extends AppCompatActivity {
                     builder.append(coloredPart);
                     // set the text to the corresponding switch
                     available_verbs_view.all_switches[selected_verbs_ids.get(0)].setText(builder);
-
-                    // inform the user about his failure.
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
+                    // inform the user about his failure.
+                    // create a toast containing the informations of the failed verb
+                    Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
                             + current_verb.getFrench() + " \t"
                             + current_verb.getPreterit() + " \t"
-                            + current_verb.getPast_p(), Toast.LENGTH_LONG);
-                    toast.show();
+                            + current_verb.getPast_p(), Toast.LENGTH_LONG).show(); // display it for a long amout of time
                 }else{
+                    // increment session score
                     current_score++;
+                    // display that the test is passed
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "pass", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(context, "pass", Toast.LENGTH_SHORT).show();
                 }
 
                 // shift the list to remove the head
@@ -148,6 +145,10 @@ public class random_test_view extends AppCompatActivity {
                 else{
                     exports = new Intent(random_test_view.this, available_tests_view.class);
                 }
+                /*
+                If the user presses back and then clicks on random test and repeat this procedure multiple times,
+                he'll have the full answer because each time a random tense is used as hint. This tense can change for each click.
+                 */
                 exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
                 exports.putExtra("current_score", current_score);
                 startActivity(exports);

@@ -23,11 +23,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/*Yes, you can use the Logcat window in Android Studio to find the source of the System.out.println() messages.
 
+        Here's how you can do it:
+
+        Open the Logcat window by clicking on the "Logcat" tab at the bottom of Android Studio.
+
+        Look for the package name of your app in the "Logcat" window. It should be displayed in the "Filter" field at the top of the window.
+
+        Click on the package name to filter the messages for your app only.
+
+        Look for the System.out messages in the log. They should be displayed in white color.
+
+        Look for the tag displayed next to the message. It should be the name of the class that contains the System.out.println() statement.
+
+        Click on the tag to show only the messages from that class.
+
+        Once you have found the source of the System.out.println() message, you can remove it or replace it with a proper logging statement using the Log class. This will make it easier to debug your app and you will have more control over the logging output.
+
+*/
 public class available_verbs_view extends AppCompatActivity {
     Button submit_btn;
     public static LinearLayout linearLayout_inScrollView;
-    public static int NB_VERBS = 1108/4;
+    public static int NB_VERBS = 1108/4; // each verbs needs 4 lines and the verbs.txt file contains 1108 lines... this is a definitive count
     DBHelper dbh = new DBHelper(this);
     public static boolean all_switched_ready = false;
     public static Switch[] all_switches = new Switch[NB_VERBS];
@@ -50,14 +68,12 @@ public class available_verbs_view extends AppCompatActivity {
             @Override
             // code to be executed when button is clicked
             public void onClick(View v) {
-                if(dbh.getSelectedCount() == 0){
+                if(dbh.getSelectedCount() == 0){ // block the user on this screen if there are no verbs selected
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "select at least one verb", Toast.LENGTH_SHORT);
-                    toast.show();
-                }else {
+                    Toast.makeText(context, "select at least one verb", Toast.LENGTH_SHORT).show(); // ask the user for a selection
+                }else { // go on to the test selection screen
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context,dbh.getSelectedCount() + " verb(s) selected" , Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(context,dbh.getSelectedCount() + " verb(s) selected" , Toast.LENGTH_SHORT).show(); // explains the user how much verbs are selected
                     Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);
 
                     payload.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
@@ -72,7 +88,7 @@ public class available_verbs_view extends AppCompatActivity {
             Thread switchManagerThread = new Thread(switchManager);
 
             switchManagerThread.start();
-            System.out.println("after the thread launch.");
+            // System.out.println("after the thread launch.");
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -92,7 +108,7 @@ public class available_verbs_view extends AppCompatActivity {
                                             // Update the switch state in the array
                                             dbh.updateSelected(FINAL_I+1, isChecked);
 
-                                            System.out.println("on change triggered");
+                                            // System.out.println("on change triggered");
 
                                             if(isChecked == true) {
                                                 available_verbs_view.selected_verbs_ids.add(FINAL_I);
@@ -116,7 +132,8 @@ public class available_verbs_view extends AppCompatActivity {
         }
     }
 
-    public void onBackPressed() {}
+    @Override
+    public void onBackPressed() {} // do nothing if back is pressed
 
     public void reset_fails(View v){
 
