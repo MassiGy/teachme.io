@@ -7,16 +7,16 @@
     android:configChanges="orientation"
     android:screenOrientation="portrait"
     tools:ignore="LockedOrientationActivity"
-    android:background="@drawable/teachme_io_bg"
+
     tools:context=".available_tests_view">
 
     <Button
         android:id="@+id/to_random_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="112dp"
-        android:text="random test."
+        android:text="random test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -25,31 +25,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="112dp"
-        android:text="classic test."
+        android:text="classic test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/to_random_test_btn"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/to_home_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="48dp"
         android:text="Home"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/score_text_field"
         android:layout_width="170dp"
         android:layout_height="52dp"
-        android:layout_marginTop="240dp"
-        android:text="Score : "
+        android:layout_marginTop="356dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="376dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/score_text_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/teachme_io_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

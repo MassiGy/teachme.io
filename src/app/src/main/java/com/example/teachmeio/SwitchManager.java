@@ -22,25 +22,43 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+/*
+    SwitchManager is a helper class that will take over
+    the available_verbs_views.all_switches list construction within a differed thread.
+
+    TODO: merge the load_verbs and the update_switches so as the loading and switch creation happens at once (performance)
+ */
 public class SwitchManager extends AppCompatActivity implements Runnable{
 
+    // declare the database connection object.
     DBHelper dbh;
+
+    // declare a context reference object
     Context context;
 
+
     SwitchManager(Context context, DBHelper dbh){
+        // set the context to the caller's activity
         this.context = context;
+        // use the same connection object then the caller activity
         this.dbh = dbh;
     }
 
 
     @Override
     public void run() {
+        // set the routines that will be executed in a differed thread.
+
+        // load the verbs from file to db ( on app startup )
         load_all_verbs_to_db(null, null);
+        // construct the available_verbs_view.all_switches list.
         updateSwitchs();
     }
 
     public void load_all_verbs_to_db(boolean[] selection_field_values, int[] fails_field_values){
 
+        // create a verbs_vector_manager.
         TabVerb tv = new TabVerb();
 
         // set our iterators (indecies) to a default but wrong value.
@@ -57,6 +75,7 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
             fails_field_values_iterator = 0;
         }
 
+        // declare a buffer object to read the file.
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new InputStreamReader(this.context.getResources().getAssets().open("verbs.txt")));
@@ -64,6 +83,7 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
 
             while ((line1 = reader.readLine()) != null && (line2 = reader.readLine()) != null && (line3 = reader.readLine()) != null && (line4 = reader.readLine()) != null) {
 
+                // add the verb to the verbs_vector_manager.
                 tv.arr.add(
                         new Verbs(
                                 line4,
@@ -98,6 +118,8 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
             }
         }
         // insert all verbs at once for better performance.
+        // NOTE: do not make this in a differed thread since the updateSwitch()
+        // need to query this information in the database.
         Verbs[] array = new Verbs[NB_VERBS];
         dbh.insertVerbs(tv.arr.toArray(array));
 
@@ -105,13 +127,11 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
 
     public void updateSwitchs(){
 
-        Switch[] switchViews = new Switch[NB_VERBS];
-
-
+        // construct the available_verbs_view.all_switches list.
         for(int i = 0 ; i < NB_VERBS ; ++i){
 
-            switchViews[i] = new Switch(context);
-            switchViews[i].setId(i);
+            all_switches[i] = new Switch(context);
+            all_switches[i].setId(i);
 
             SpannableStringBuilder builder = new SpannableStringBuilder();
 
@@ -128,11 +148,13 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
             String pre = actual.preterit;
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
-            System.out.println("´@@@@@@@@@@@@@@@" + i + " :: " + actual);
+
+
+            // construct the available_verbs_view.all_switches_state list.
             all_switches_state[i] = actual.selected;
 
 
-            // if the verb is selected, then add its id to the list
+            // if the verb is selected, then add its id to the available_verbs_view.selected_verbs_ids list.
             if(actual.selected == true ){
                 available_verbs_view.selected_verbs_ids.add(i);
             }
@@ -149,19 +171,14 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
             builder.append(coloredPart);
 
 
-            switchViews[i].setText(builder);
+            all_switches[i].setText(builder);
         }
 
         System.out.println("switch texts are all set");
 
-        all_switches = switchViews;
+        // mark the end of the switches preps.
         all_switched_ready = true;
 
     }
-
-
-
-
-
 
 }

@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+/*
+    TabVerb is a helper class that will manager verbs_vectors.
+ */
 public class TabVerb {
     public ArrayList<Verbs> arr;
 
@@ -21,9 +24,14 @@ public class TabVerb {
 
 
     public Verbs getRandomVerbFromSelected(){
+        // make sure that verbs_vector is not empty.
         if(arr.size() == 0) return null;
+
+        // get a random value
         Random r = new Random();
         r.setSeed(System.currentTimeMillis());
+
+        // grab the random verb
         int res;
         while(!arr.get(res = r.nextInt(arr.size())).selected){}
         return arr.get(res);
@@ -40,28 +48,5 @@ public class TabVerb {
                             .map(s -> s.toString())
                             .collect(Collectors.toList());
     }
-
-    // SQLite table definition
-    public static final String TABLE_NAME = "verbs";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_FRENCH = "french";
-    public static final String COLUMN_ENGLISH = "english";
-    public static final String COLUMN_PRETERIT = "preterit";
-    public static final String COLUMN_PAST_P = "past_p";
-    public static final String COLUMN_NUMBER_FAILS = "number_fails";
-    public static final String COLUMN_SELECTED = "selected";
-
-    public static final String CREATE_TABLE =
-            "CREATE TABLE " + TABLE_NAME + "("
-                    + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + COLUMN_FRENCH + " TEXT,"
-                    + COLUMN_ENGLISH + " TEXT,"
-                    + COLUMN_PRETERIT + " TEXT,"
-                    + COLUMN_PAST_P + " TEXT,"
-                    + COLUMN_NUMBER_FAILS + " INTEGER,"
-                    + COLUMN_SELECTED + " INTEGER"
-                    + ")";
-
-
 }
 
