@@ -26,6 +26,6 @@ public class splash_screen_view extends AppCompatActivity {
                 // stop the splash screen activity, so as it can not be reached again.
                 finish();
             }
-        }, 1000);
+        }, 300);
     }
 }

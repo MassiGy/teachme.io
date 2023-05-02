@@ -148,7 +148,7 @@ public class SwitchManager extends AppCompatActivity implements Runnable{
             String pre = actual.preterit;
             String pp = actual.past_p;
             String fails = actual.nb_fails + "";
-            System.out.println("´@@@@@@@@@@@@@@@" + i + " :: " + actual);
+
 
             // construct the available_verbs_view.all_switches_state list.
             all_switches_state[i] = actual.selected;
