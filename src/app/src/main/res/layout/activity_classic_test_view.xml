@@ -7,7 +7,7 @@
     android:configChanges="orientation"
     android:screenOrientation="portrait"
     tools:ignore="LockedOrientationActivity"
-    android:background="@drawable/teachme_io_bg"
+
     tools:context=".classic_test_view">
 
     <Button
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:text="Next -> "
+        android:text="Next > "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/classic_test_preterit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -60,12 +60,22 @@
         android:id="@+id/classic_test_past_participle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="P. past  goes here."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classic_test_preterit" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/teachme_io_test_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
