@@ -40,7 +40,9 @@ public class available_verbs_view extends AppCompatActivity {
     // declare a list of verbs id that will hold the selected verbs id to be tested on.
     public static  ArrayList<Integer> selected_verbs_ids= new ArrayList<>();
 
-
+    public static final int CLICK_SOUND_POSITIVE = 0;
+    public static final int CLICK_SOUND_NEGATIVE = 1;
+    private SoundManager sm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,14 @@ public class available_verbs_view extends AppCompatActivity {
         final  LoadingDialog loadingDialog = new LoadingDialog(available_verbs_view.this, null);
         loadingDialog.startLoadingDialog();
 
+        // create sound manager class
+        sm = new SoundManager();
+        sm.initSounds(this);
+        // load sounds
+        sm.addSound(CLICK_SOUND_POSITIVE, R.raw.win_video_game);
+        sm.addSound(CLICK_SOUND_NEGATIVE, R.raw.bad_click);
+
+
         // connect the linear_layout_in_scroll_view
         linearLayout_inScrollView = findViewById(R.id.linear_layout_in_scroll_view);
 
@@ -66,9 +76,11 @@ public class available_verbs_view extends AppCompatActivity {
             // code to be executed when button is clicked
             public void onClick(View v) {
                 if(dbh.getSelectedCount() == 0){ // block the user on this screen if there are no verbs selected
+                    sm.playSound(CLICK_SOUND_NEGATIVE); // play fail sound
                     Context context = getApplicationContext();
                     Toast.makeText(context, "select at least one verb", Toast.LENGTH_SHORT).show(); // ask the user for a selection
                 }else { // go on to the test selection screen
+                    sm.playSound(CLICK_SOUND_POSITIVE); // play success sound
                     Context context = getApplicationContext();
                     Toast.makeText(context,dbh.getSelectedCount() + " verb(s) selected" , Toast.LENGTH_SHORT).show(); // explains the user how much verbs are selected
                     Intent payload = new Intent(available_verbs_view.this, available_tests_view.class);

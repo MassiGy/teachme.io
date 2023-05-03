@@ -32,10 +32,22 @@ public class random_test_view extends AppCompatActivity {
     // set a reference to the selected_verbs_id list.
     ArrayList<Integer> selected_verbs_ids;
 
+    private SoundManager sm;
+    private static final int CORRECT_SOUND = 0;
+    private static final int WRONG_SOUND = 1;
+    private static final int BACK_SOUND = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_test_view);
+
+        // create sound manager and add sounds
+        sm = new SoundManager();
+        sm.initSounds(this);
+        sm.addSound(CORRECT_SOUND, R.raw.correct_ans);
+        sm.addSound(WRONG_SOUND, R.raw.bad_click);
+        sm.addSound(BACK_SOUND, R.raw.pop);
 
         // map our ui components to our objects
         random_test_english = findViewById(R.id.random_test_english);
@@ -139,12 +151,14 @@ public class random_test_view extends AppCompatActivity {
                     // display a failure message.
                     Context context = getApplicationContext();
                     // inform the user about his failure.
-                    // create a toast containing the informations of the failed verb
+                    // create a toast containing the informations of the failed verb + sound
+                    sm.playSound(WRONG_SOUND);
                     Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
                             + current_verb.getFrench() + " \t"
                             + current_verb.getPreterit() + " \t"
                             + current_verb.getPast_p(), Toast.LENGTH_LONG).show(); // display it for a long amout of time
                 }else{
+                    sm.playSound(CORRECT_SOUND);
                     // increment the score
                     current_score++;
 
@@ -159,7 +173,7 @@ public class random_test_view extends AppCompatActivity {
                 Intent exports;
                 if(selected_verbs_ids.size() > 0){
                     // set next view to the same test view
-                    exports = new Intent(random_test_view.this, classic_test_view.class);
+                    exports = new Intent(random_test_view.this, random_test_view.class);
                 }
                 else{
                     // otherwise, set next view to the available test view
@@ -177,6 +191,7 @@ public class random_test_view extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        sm.playSound(BACK_SOUND);
         // if back is pressed within an ongoing test, go back to the available test view.
         Intent exports = new Intent(random_test_view.this, available_tests_view.class);
         exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);

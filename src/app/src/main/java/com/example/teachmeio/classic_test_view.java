@@ -35,11 +35,21 @@ public class classic_test_view extends AppCompatActivity {
     // set a selected_verbs_ids list reference.
     ArrayList<Integer> selected_verbs_ids;
 
-
+    private SoundManager sm;
+    private static final int CORRECT_SOUND = 0;
+    private static final int WRONG_SOUND = 1;
+    private static final int BACK_SOUND = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classic_test_view);
+
+        // create sound manager and add sounds
+        sm = new SoundManager();
+        sm.initSounds(this);
+        sm.addSound(CORRECT_SOUND, R.raw.correct_ans);
+        sm.addSound(WRONG_SOUND, R.raw.bad_click);
+        sm.addSound(BACK_SOUND, R.raw.pop);
 
         // map our ui components to our objects
         classic_next_btn = findViewById(R.id.classic_next_btn);
@@ -118,7 +128,8 @@ public class classic_test_view extends AppCompatActivity {
                     });
                     update_switch_text_differed_thread.start();
 
-                    // inform the user about his failure by displaying a long toast with the correct information about the verb
+                    // inform the user about his failure by displaying a long toast with the correct information about the verb + sound
+                    sm.playSound(WRONG_SOUND);
                     Context context = getApplicationContext();
                     Toast.makeText(context, "fail : \t"   + current_verb.getEnglish() + " \t"
                                                                     + current_verb.getFrench() + " \t"
@@ -126,6 +137,7 @@ public class classic_test_view extends AppCompatActivity {
                                                                     + current_verb.getPast_p(), Toast.LENGTH_LONG).show();
                 }else{
                     // increment the user score.
+                    sm.playSound(CORRECT_SOUND);
                     current_score++;
                     // display success toast
                     Context context = getApplicationContext();
@@ -154,6 +166,7 @@ public class classic_test_view extends AppCompatActivity {
     }
 
     public void onBackPressed() {
+        sm.playSound(BACK_SOUND);
         // if back pressed while an ongoing test, go back to the available test view.
         Intent exports = new Intent(classic_test_view.this, available_tests_view.class);
         exports.putIntegerArrayListExtra("selected_verbs_ids", selected_verbs_ids);
