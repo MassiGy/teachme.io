@@ -144,8 +144,8 @@ public class available_verbs_view extends AppCompatActivity {
                                 }
                             }
                         },
-                    // wait for 4~5s to load and query all the verbs to and from the db.
-                    4500
+                    // wait for 5~6s to load and query all the verbs to and from the db.
+                    5000
             );
         }
         else {
