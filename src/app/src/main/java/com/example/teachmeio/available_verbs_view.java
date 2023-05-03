@@ -118,6 +118,9 @@ public class available_verbs_view extends AppCompatActivity {
                                 // populate the linear_layout_in_scroll_view
                                 for (int i = 0; i < NB_VERBS - 1; i++) {
 
+                                    // make sure that the switch is already constructed, otherwise go to next one
+                                    if(all_switches[i] == null) continue;
+
                                     linearLayout_inScrollView.addView(all_switches[i]);
 
                                     // set the checked on the view before adding the event_listener
