@@ -20,17 +20,17 @@ import java.util.Random;
 
 public class random_test_view extends AppCompatActivity {
     // set a database connection helper object.
-    DBHelper dbh;
+    private DBHelper dbh;
 
     // instantiate our ui component objects.
-    Button random_next_btn;
-    EditText random_test_english, random_test_french, random_test_preterit, random_test_past_participle;
+    private Button random_next_btn;
+    private EditText random_test_english, random_test_french, random_test_preterit, random_test_past_participle;
 
     // set a counter for the user score.
     public static int current_score;
 
     // set a reference to the selected_verbs_id list.
-    ArrayList<Integer> selected_verbs_ids;
+    private ArrayList<Integer> selected_verbs_ids;
 
     private SoundManager sm;
     private static final int CORRECT_SOUND = 0;

@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class available_verbs_view extends AppCompatActivity {
-    Button submit_btn;
+    private Button submit_btn;
 
     // access the linear_layout_in_scroll_view to dynamically populate it.
     public static LinearLayout linearLayout_inScrollView;

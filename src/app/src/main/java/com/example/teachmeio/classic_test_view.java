@@ -26,14 +26,14 @@ public class classic_test_view extends AppCompatActivity {
 
 
     // declare our ui components objects
-    Button classic_next_btn;
-    EditText classic_test_english, classic_test_french, classic_test_preterit, classic_test_past_participle;
+    private Button classic_next_btn;
+    private EditText classic_test_english, classic_test_french, classic_test_preterit, classic_test_past_participle;
 
     // declare our database connection helper.
-    DBHelper dbh;
+    private DBHelper dbh;
 
     // set a selected_verbs_ids list reference.
-    ArrayList<Integer> selected_verbs_ids;
+    private ArrayList<Integer> selected_verbs_ids;
 
     private SoundManager sm;
     private static final int CORRECT_SOUND = 0;
